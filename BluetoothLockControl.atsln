@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "BluetoothLockControl", "BluetoothLockControl\BluetoothLockControl.cproj", "{64551B87-D0D4-4492-B7F9-8D3EB3E1231E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{64551B87-D0D4-4492-B7F9-8D3EB3E1231E}.Debug|AVR.ActiveCfg = Debug|AVR
+		{64551B87-D0D4-4492-B7F9-8D3EB3E1231E}.Debug|AVR.Build.0 = Debug|AVR
+		{64551B87-D0D4-4492-B7F9-8D3EB3E1231E}.Release|AVR.ActiveCfg = Release|AVR
+		{64551B87-D0D4-4492-B7F9-8D3EB3E1231E}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
