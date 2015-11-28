@@ -40,7 +40,7 @@ unsigned char pinInputComplete;
 //---------------Flags---------------
 
 
-void clearInputPin()
+void clearInputPin()						//clears the Character Array for Input Pin
 {
 	for(unsigned char i = 0; i < 8; ++i){
 		inputPin[i] = '\0';
@@ -78,7 +78,7 @@ int TickFct_Controller(int state){
 	unsigned char key = GetKeypadKey();
 	switch(state){
 		case controllerinit:
-			clearFlags();
+			clearFlags();											
 			lockedFlag = 1;
 			showPin = 0;
 			state = controllerWait;
