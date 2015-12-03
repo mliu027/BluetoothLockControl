@@ -259,7 +259,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xb8e
+.text           0x00000000      0xcae
  *(.vectors)
  .vectors       0x00000000       0x8c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
                 0x00000000                __vector_default
@@ -267,43 +267,43 @@ END GROUP
  *(.vectors)
  *(.progmem.gcc*)
  .progmem.gcc_sw_table.TickFct_Controller
-                0x0000008c       0x12 BluetoothLockControl.o
-                0x0000009e                . = ALIGN (0x2)
-                0x0000009e                __trampolines_start = .
+                0x0000008c       0x18 BluetoothLockControl.o
+                0x000000a4                . = ALIGN (0x2)
+                0x000000a4                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x0000009e        0x0 linker stubs
+ .trampolines   0x000000a4        0x0 linker stubs
  *(.trampolines*)
-                0x0000009e                __trampolines_end = .
+                0x000000a4                __trampolines_end = .
  *(.progmem*)
-                0x0000009e                . = ALIGN (0x2)
+                0x000000a4                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x0000009e                __ctors_start = .
+                0x000000a4                __ctors_start = .
  *(.ctors)
-                0x0000009e                __ctors_end = .
-                0x0000009e                __dtors_start = .
+                0x000000a4                __ctors_end = .
+                0x000000a4                __dtors_start = .
  *(.dtors)
-                0x0000009e                __dtors_end = .
+                0x000000a4                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x0000009e        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
-                0x0000009e                __init
+ .init0         0x000000a4        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
+                0x000000a4                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x0000009e        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
+ .init2         0x000000a4        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000aa       0x1a e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
-                0x000000aa                __do_copy_data
- .init4         0x000000c4       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
-                0x000000c4                __do_clear_bss
+ .init4         0x000000b0       0x1a e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_copy_data.o)
+                0x000000b0                __do_copy_data
+ .init4         0x000000ca       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_clear_bss.o)
+                0x000000ca                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -314,131 +314,131 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000d4        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
+ .init9         0x000000da        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
  *(.init9)
  *(.text)
- .text          0x000000d8        0x2 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
-                0x000000d8                __vector_22
-                0x000000d8                __vector_28
-                0x000000d8                __vector_1
-                0x000000d8                __vector_32
-                0x000000d8                __vector_34
-                0x000000d8                __vector_24
-                0x000000d8                __vector_12
-                0x000000d8                __bad_interrupt
-                0x000000d8                __vector_6
-                0x000000d8                __vector_31
-                0x000000d8                __vector_3
-                0x000000d8                __vector_23
-                0x000000d8                __vector_30
-                0x000000d8                __vector_25
-                0x000000d8                __vector_11
-                0x000000d8                __vector_17
-                0x000000d8                __vector_19
-                0x000000d8                __vector_7
-                0x000000d8                __vector_27
-                0x000000d8                __vector_5
-                0x000000d8                __vector_33
-                0x000000d8                __vector_4
-                0x000000d8                __vector_9
-                0x000000d8                __vector_2
-                0x000000d8                __vector_21
-                0x000000d8                __vector_15
-                0x000000d8                __vector_29
-                0x000000d8                __vector_8
-                0x000000d8                __vector_26
-                0x000000d8                __vector_14
-                0x000000d8                __vector_10
-                0x000000d8                __vector_16
-                0x000000d8                __vector_18
-                0x000000d8                __vector_20
-                0x000000da                . = ALIGN (0x2)
+ .text          0x000000de        0x2 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
+                0x000000de                __vector_22
+                0x000000de                __vector_28
+                0x000000de                __vector_1
+                0x000000de                __vector_32
+                0x000000de                __vector_34
+                0x000000de                __vector_24
+                0x000000de                __vector_12
+                0x000000de                __bad_interrupt
+                0x000000de                __vector_6
+                0x000000de                __vector_31
+                0x000000de                __vector_3
+                0x000000de                __vector_23
+                0x000000de                __vector_30
+                0x000000de                __vector_25
+                0x000000de                __vector_11
+                0x000000de                __vector_17
+                0x000000de                __vector_19
+                0x000000de                __vector_7
+                0x000000de                __vector_27
+                0x000000de                __vector_5
+                0x000000de                __vector_33
+                0x000000de                __vector_4
+                0x000000de                __vector_9
+                0x000000de                __vector_2
+                0x000000de                __vector_21
+                0x000000de                __vector_15
+                0x000000de                __vector_29
+                0x000000de                __vector_8
+                0x000000de                __vector_26
+                0x000000de                __vector_14
+                0x000000de                __vector_10
+                0x000000de                __vector_16
+                0x000000de                __vector_18
+                0x000000de                __vector_20
+                0x000000e0                . = ALIGN (0x2)
  *(.text.*)
  .text.GetKeypadKey
-                0x000000da       0xd0 BluetoothLockControl.o
-                0x000000da                GetKeypadKey
- .text.TimerOn  0x000001aa       0x14 BluetoothLockControl.o
-                0x000001aa                TimerOn
+                0x000000e0       0xd0 BluetoothLockControl.o
+                0x000000e0                GetKeypadKey
+ .text.TimerOn  0x000001b0       0x14 BluetoothLockControl.o
+                0x000001b0                TimerOn
  .text.delay_ms
-                0x000001be       0x2e BluetoothLockControl.o
-                0x000001be                delay_ms
+                0x000001c4       0x2e BluetoothLockControl.o
+                0x000001c4                delay_ms
  .text.LCD_WriteCommand
-                0x000001ec       0x12 BluetoothLockControl.o
-                0x000001ec                LCD_WriteCommand
+                0x000001f2       0x12 BluetoothLockControl.o
+                0x000001f2                LCD_WriteCommand
  .text.LCD_ClearScreen
-                0x000001fe        0x6 BluetoothLockControl.o
-                0x000001fe                LCD_ClearScreen
+                0x00000204        0x6 BluetoothLockControl.o
+                0x00000204                LCD_ClearScreen
  .text.LCD_Cursor
-                0x00000204       0x10 BluetoothLockControl.o
-                0x00000204                LCD_Cursor
+                0x0000020a       0x10 BluetoothLockControl.o
+                0x0000020a                LCD_Cursor
  .text.LCD_init
-                0x00000214       0x1e BluetoothLockControl.o
-                0x00000214                LCD_init
+                0x0000021a       0x1e BluetoothLockControl.o
+                0x0000021a                LCD_init
  .text.LCD_WriteData
-                0x00000232       0x12 BluetoothLockControl.o
-                0x00000232                LCD_WriteData
+                0x00000238       0x12 BluetoothLockControl.o
+                0x00000238                LCD_WriteData
  .text.LCD_DisplayString
-                0x00000244       0x34 BluetoothLockControl.o
-                0x00000244                LCD_DisplayString
+                0x0000024a       0x34 BluetoothLockControl.o
+                0x0000024a                LCD_DisplayString
  .text.initUSART
-                0x00000278       0x44 BluetoothLockControl.o
-                0x00000278                initUSART
+                0x0000027e       0x44 BluetoothLockControl.o
+                0x0000027e                initUSART
  .text.USART_Flush
-                0x000002bc       0x42 BluetoothLockControl.o
-                0x000002bc                USART_Flush
+                0x000002c2       0x42 BluetoothLockControl.o
+                0x000002c2                USART_Flush
  .text.USART_Send
-                0x000002fe       0x24 BluetoothLockControl.o
-                0x000002fe                USART_Send
+                0x00000304       0x24 BluetoothLockControl.o
+                0x00000304                USART_Send
  .text.TickFct_USART
-                0x00000322       0x76 BluetoothLockControl.o
-                0x00000322                TickFct_USART
+                0x00000328       0x76 BluetoothLockControl.o
+                0x00000328                TickFct_USART
  .text.USART_Receive
-                0x00000398       0x24 BluetoothLockControl.o
-                0x00000398                USART_Receive
+                0x0000039e       0x24 BluetoothLockControl.o
+                0x0000039e                USART_Receive
  .text.clearInputPin
-                0x000003bc       0x12 BluetoothLockControl.o
-                0x000003bc                clearInputPin
+                0x000003c2       0x12 BluetoothLockControl.o
+                0x000003c2                clearInputPin
  .text.TickFct_BluetoothReceiver
-                0x000003ce       0xd8 BluetoothLockControl.o
-                0x000003ce                TickFct_BluetoothReceiver
+                0x000003d4       0xd8 BluetoothLockControl.o
+                0x000003d4                TickFct_BluetoothReceiver
  .text.TickFct_KeypadReceiver
-                0x000004a6      0x164 BluetoothLockControl.o
-                0x000004a6                TickFct_KeypadReceiver
+                0x000004ac      0x164 BluetoothLockControl.o
+                0x000004ac                TickFct_KeypadReceiver
  .text.clearFlags
-                0x0000060a       0x24 BluetoothLockControl.o
-                0x0000060a                clearFlags
+                0x00000610       0x24 BluetoothLockControl.o
+                0x00000610                clearFlags
  .text.TickFct_Controller
-                0x0000062e      0x1d4 BluetoothLockControl.o
-                0x0000062e                TickFct_Controller
+                0x00000634      0x2ea BluetoothLockControl.o
+                0x00000634                TickFct_Controller
  .text.getInputPinLength
-                0x00000802       0x20 BluetoothLockControl.o
-                0x00000802                getInputPinLength
+                0x0000091e       0x20 BluetoothLockControl.o
+                0x0000091e                getInputPinLength
  .text.getCorrectPinLength
-                0x00000822       0x18 BluetoothLockControl.o
-                0x00000822                getCorrectPinLength
+                0x0000093e       0x18 BluetoothLockControl.o
+                0x0000093e                getCorrectPinLength
  .text.TickFct_CheckPin
-                0x0000083a       0xa0 BluetoothLockControl.o
-                0x0000083a                TickFct_CheckPin
+                0x00000956       0xa0 BluetoothLockControl.o
+                0x00000956                TickFct_CheckPin
  .text.__vector_13
-                0x000008da       0xc6 BluetoothLockControl.o
-                0x000008da                __vector_13
- .text.main     0x000009a0      0x1b2 BluetoothLockControl.o
-                0x000009a0                main
- .text.libgcc   0x00000b52        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_tablejump.o)
-                0x00000b52                __tablejump2__
-                0x00000b56                __tablejump__
+                0x000009f6       0xc6 BluetoothLockControl.o
+                0x000009f6                __vector_13
+ .text.main     0x00000abc      0x1b6 BluetoothLockControl.o
+                0x00000abc                main
+ .text.libgcc   0x00000c72        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_tablejump.o)
+                0x00000c72                __tablejump2__
+                0x00000c76                __tablejump__
  .text.avr-libc
-                0x00000b5e       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eerd_byte_atmega1284.o)
-                0x00000b5e                __eerd_byte_m1284
+                0x00000c7e       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eerd_byte_atmega1284.o)
+                0x00000c7e                __eerd_byte_m1284
  .text.avr-libc
-                0x00000b6e       0x1c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eewr_byte_atmega1284.o)
-                0x00000b6e                __eewr_byte_m1284
-                0x00000b70                __eewr_r18_m1284
-                0x00000b8a                . = ALIGN (0x2)
+                0x00000c8e       0x1c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eewr_byte_atmega1284.o)
+                0x00000c8e                __eewr_byte_m1284
+                0x00000c90                __eewr_r18_m1284
+                0x00000caa                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000b8a        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
-                0x00000b8a                _exit
-                0x00000b8a                exit
+ .fini9         0x00000caa        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x00000caa                _exit
+                0x00000caa                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -457,61 +457,63 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000b8a        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x00000caa        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000b8e                _etext = .
+                0x00000cae                _etext = .
 
-.data           0x00800100       0xec load address 0x00000b8e
+.data           0x00800100       0xfa load address 0x00000cae
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800100       0xec BluetoothLockControl.o
+                0x00800100       0xf9 BluetoothLockControl.o
+                                 0xff (size before relaxing)
  *(.gnu.linkonce.d*)
-                0x008001ec                . = ALIGN (0x2)
-                0x008001ec                _edata = .
-                0x008001ec                PROVIDE (__data_end, .)
+                0x008001fa                . = ALIGN (0x2)
+ *fill*         0x008001f9        0x1 
+                0x008001fa                _edata = .
+                0x008001fa                PROVIDE (__data_end, .)
 
-.bss            0x008001ec       0x6f
-                0x008001ec                PROVIDE (__bss_start, .)
+.bss            0x008001fa       0x6f
+                0x008001fa                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.dummy.1716
-                0x008001ec        0x1 BluetoothLockControl.o
+                0x008001fa        0x1 BluetoothLockControl.o
  .bss.correctPinAddr
-                0x008001ed        0x1 BluetoothLockControl.o
-                0x008001ed                correctPinAddr
+                0x008001fb        0x1 BluetoothLockControl.o
+                0x008001fb                correctPinAddr
  *(COMMON)
- COMMON         0x008001ee       0x6d BluetoothLockControl.o
-                0x008001ee                tasksPeriodGCD
-                0x008001f0                lockedFlag
-                0x008001f1                checkPinFlag
-                0x008001f2                tasks
-                0x0080022e                position
-                0x0080022f                tasksNum
-                0x00800231                pinInputComplete
-                0x00800232                bluetoothEnable
-                0x00800233                correctPin
-                0x00800243                inputPin
-                0x00800253                isCorrect
-                0x00800254                controlCounter
-                0x00800256                showPin
-                0x00800257                keypadEnable
-                0x00800258                lastReceivedChar
-                0x00800259                checkCounter
-                0x0080025a                newPinInputComplete
-                0x0080025b                PROVIDE (__bss_end, .)
-                0x00000b8e                __data_load_start = LOADADDR (.data)
-                0x00000c7a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008001fc       0x6d BluetoothLockControl.o
+                0x008001fc                tasksPeriodGCD
+                0x008001fe                lockedFlag
+                0x008001ff                checkPinFlag
+                0x00800200                tasks
+                0x0080023c                position
+                0x0080023d                tasksNum
+                0x0080023f                pinInputComplete
+                0x00800240                bluetoothEnable
+                0x00800241                correctPin
+                0x00800251                inputPin
+                0x00800261                isCorrect
+                0x00800262                controlCounter
+                0x00800264                showPin
+                0x00800265                keypadEnable
+                0x00800266                lastReceivedChar
+                0x00800267                checkCounter
+                0x00800268                newPinInputComplete
+                0x00800269                PROVIDE (__bss_end, .)
+                0x00000cae                __data_load_start = LOADADDR (.data)
+                0x00000da8                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080025b        0x0
-                0x0080025b                PROVIDE (__noinit_start, .)
+.noinit         0x00800269        0x0
+                0x00800269                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x0080025b                PROVIDE (__noinit_end, .)
-                0x0080025b                _end = .
-                0x0080025b                PROVIDE (__heap_start, .)
+                0x00800269                PROVIDE (__noinit_end, .)
+                0x00800269                _end = .
+                0x00800269                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -578,30 +580,30 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xf72
+.debug_info     0x00000000     0x10e0
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0xf72 BluetoothLockControl.o
+ .debug_info    0x00000000     0x10e0 BluetoothLockControl.o
 
-.debug_abbrev   0x00000000      0x36f
+.debug_abbrev   0x00000000      0x36b
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x36f BluetoothLockControl.o
+ .debug_abbrev  0x00000000      0x36b BluetoothLockControl.o
 
-.debug_line     0x00000000      0xd8c
+.debug_line     0x00000000      0xea6
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0xd8c BluetoothLockControl.o
+ .debug_line    0x00000000      0xea6 BluetoothLockControl.o
 
 .debug_frame    0x00000000      0x2e8
  *(.debug_frame)
  .debug_frame   0x00000000      0x2e8 BluetoothLockControl.o
 
-.debug_str      0x00000000      0x620
+.debug_str      0x00000000      0x677
  *(.debug_str)
- .debug_str     0x00000000      0x620 BluetoothLockControl.o
-                                0x66b (size before relaxing)
+ .debug_str     0x00000000      0x677 BluetoothLockControl.o
+                                0x6c2 (size before relaxing)
 
-.debug_loc      0x00000000      0xe64
+.debug_loc      0x00000000      0xfdd
  *(.debug_loc)
- .debug_loc     0x00000000      0xe64 BluetoothLockControl.o
+ .debug_loc     0x00000000      0xfdd BluetoothLockControl.o
 
 .debug_macinfo
  *(.debug_macinfo)

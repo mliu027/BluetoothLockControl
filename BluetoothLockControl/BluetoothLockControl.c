@@ -73,9 +73,12 @@ unsigned char getCorrectPinLength(){
 	return i;
 }
 
-enum SM_Controller{controllerinit, controllerWait, controllerKeypad, controllerBluetooth, controllerCheck, controllerUnlocked, controllerLocked, controllerLockWaitRelease, controllerChangePin};
+enum SM_Controller{controllerinit, controllerWait, controllerKeypad, controllerBluetooth, controllerCheck,
+	 controllerUnlocked, controllerLocked, controllerLockWaitRelease, controllerChangePin, controllerIntrusionDetected, 
+	 controllerIntrusionPin, controllerIntrusionCheck};
 int TickFct_Controller(int state){
 	unsigned char key = GetKeypadKey();
+	unsigned char doorClosed = (~PIND & 0x10) >> 4;
 	switch(state){
 		case controllerinit:
 			clearFlags();											
@@ -86,7 +89,11 @@ int TickFct_Controller(int state){
 			LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
 			break;
 		case controllerWait:
-			if(key == 'A'){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key == 'A'){
 				state = controllerKeypad;
 				keypadEnable = 1;
 				clearInputPin();
@@ -100,7 +107,11 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerBluetooth:
-			if(key == 'C'){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key == 'C'){
 				state = controllerWait;
 				bluetoothEnable = 0;
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
@@ -117,7 +128,11 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerKeypad:
-			if(pinInputComplete){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(pinInputComplete){
 				state = controllerCheck;
 				checkPinFlag = 1;
 				keypadEnable = 0;
@@ -128,7 +143,11 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerCheck:
-			if(key == 'C'){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key == 'C'){
 				state = controllerWait;
 				clearInputPin();
 				clearFlags();
@@ -150,7 +169,11 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerLocked:
-			if(controlCounter >= 750){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(controlCounter >= 750){
 				state = controllerWait;
 				clearInputPin();
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
@@ -174,7 +197,11 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerLockWaitRelease:
-			if(key != '\0'){
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key != '\0'){
 				state = controllerLockWaitRelease;
 			}
 			else{
@@ -193,6 +220,44 @@ int TickFct_Controller(int state){
 				keypadEnable = 0;
 				showPin = 0;
 				LCD_DisplayString(1, "Press A to Lock C to change Pin");
+			}
+			break;
+		case controllerIntrusionDetected:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionPin;
+				keypadEnable = 1;
+				clearInputPin();
+			}
+			else{
+				state = controllerWait;
+			}
+			break;
+		case controllerIntrusionPin:
+			if(pinInputComplete){
+				state = controllerIntrusionCheck;
+				checkPinFlag = 1;
+				keypadEnable = 0;
+				LCD_DisplayString(1, "Checking...     C to cancel");
+			}
+			else{
+				state = controllerIntrusionPin;
+			}
+			break;
+		case controllerIntrusionCheck:
+			if(checkPinFlag){
+				state = controllerIntrusionCheck;
+			}
+			else{
+				if(lockedFlag){
+					state = controllerIntrusionDetected;
+					controlCounter = 0;
+					LCD_DisplayString(1, "Incorrect Pin");
+					delay_ms(500);
+				}
+				else{
+					state = controllerUnlocked;
+					LCD_DisplayString(1, "Press A to Lock C to change Pin");
+				}
 			}
 			break;
 		default:
@@ -230,6 +295,15 @@ int TickFct_Controller(int state){
 		case controllerChangePin:
 			PORTA = 9;
 			break;
+		case controllerIntrusionDetected:
+			PORTA = 10;
+			break;
+		case controllerIntrusionPin:
+			PORTA = 11;
+			break;
+		case controllerIntrusionCheck:
+			PORTA = 12;
+			break;	
 	}
 	return state;
 }
@@ -503,6 +577,7 @@ int main(void)
 	DDRA = 0xFF;	PORTA = 0x00;
 	DDRB = 0xF0;	PORTB = 0x0F;
 	DDRC = 0xFF;	PORTC = 0x00;
+	DDRD = 0x00;	PORTD = 0xFF;
 	eeprom_write_byte(correctPinAddr++, '0');
 	eeprom_write_byte(correctPinAddr++, '0');
 	eeprom_write_byte(correctPinAddr++, '0');
