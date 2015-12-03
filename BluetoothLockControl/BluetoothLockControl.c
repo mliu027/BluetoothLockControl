@@ -441,7 +441,6 @@ int TickFct_KeypadReceiver(int state){
 					unsigned char counter = 0;
 					correctPinAddr = CORRECTPINSTARTADDR;
 					while(1){
-						PORTA = 1;
 						eeprom_write_byte(correctPinAddr++, inputPin[counter]);
 						if(inputPin[counter] == '\0'){
 							break;
@@ -570,11 +569,6 @@ int main(void)
 	DDRB = 0xF0;	PORTB = 0x0F;
 	DDRC = 0xFF;	PORTC = 0x00;
 	DDRD = 0x00;	PORTD = 0xFF;
-	eeprom_write_byte(correctPinAddr++, '0');
-	eeprom_write_byte(correctPinAddr++, '0');
-	eeprom_write_byte(correctPinAddr++, '0');
-	eeprom_write_byte(correctPinAddr++, '0');
-	eeprom_write_byte(correctPinAddr++, '\0');
 	initUSART(0);
 	initUSART(1);
 	LCD_init();

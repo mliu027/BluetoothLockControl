@@ -3,29 +3,29 @@ BluetoothLockControl.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000000fa  00800100  00000cbe  00000d52  2**0
+  0 .data         000000fa  00800100  00000c64  00000cf8  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000cbe  00000000  00000000  00000094  2**1
+  1 .text         00000c64  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000006f  008001fa  008001fa  00000e4c  2**0
+  2 .bss          0000006f  008001fa  008001fa  00000df2  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000e4c  2**0
+  3 .comment      00000030  00000000  00000000  00000df2  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000118  00000000  00000000  00000e7c  2**0
+  4 .debug_aranges 00000118  00000000  00000000  00000e22  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00001101  00000000  00000000  00000f94  2**0
+  5 .debug_info   0000109e  00000000  00000000  00000f3a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000036b  00000000  00000000  00002095  2**0
+  6 .debug_abbrev 0000036b  00000000  00000000  00001fd8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000ef6  00000000  00000000  00002400  2**0
+  7 .debug_line   00000ed8  00000000  00000000  00002343  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000002e8  00000000  00000000  000032f8  2**2
+  8 .debug_frame  000002e8  00000000  00000000  0000321c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000677  00000000  00000000  000035e0  2**0
+  9 .debug_str    00000677  00000000  00000000  00003504  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000f9b  00000000  00000000  00003c57  2**0
+ 10 .debug_loc    00000f9b  00000000  00000000  00003b7b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000108  00000000  00000000  00004bf2  2**0
+ 11 .debug_ranges 00000108  00000000  00000000  00004b16  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -126,7 +126,7 @@ Disassembly of section .text:
   b0:	11 e0       	ldi	r17, 0x01	; 1
   b2:	a0 e0       	ldi	r26, 0x00	; 0
   b4:	b1 e0       	ldi	r27, 0x01	; 1
-  b6:	ee eb       	ldi	r30, 0xBE	; 190
+  b6:	e4 e6       	ldi	r30, 0x64	; 100
   b8:	fc e0       	ldi	r31, 0x0C	; 12
   ba:	00 e0       	ldi	r16, 0x00	; 0
   bc:	0b bf       	out	0x3b, r16	; 59
@@ -151,7 +151,7 @@ Disassembly of section .text:
   d6:	b2 07       	cpc	r27, r18
   d8:	e1 f7       	brne	.-8      	; 0xd2 <.do_clear_bss_loop>
   da:	f8 d4       	rcall	.+2544   	; 0xacc <main>
-  dc:	ee c5       	rjmp	.+3036   	; 0xcba <_exit>
+  dc:	c1 c5       	rjmp	.+2946   	; 0xc60 <_exit>
 
 000000de <__bad_interrupt>:
   de:	90 cf       	rjmp	.-224    	; 0x0 <__vectors>
@@ -1046,7 +1046,7 @@ int TickFct_KeypadReceiver(int state){
  59a:	98 0f       	add	r25, r24
  59c:	90 93 fb 01 	sts	0x01FB, r25
  5a0:	90 e0       	ldi	r25, 0x00	; 0
- 5a2:	7d d3       	rcall	.+1786   	; 0xc9e <__eewr_byte_m1284>
+ 5a2:	50 d3       	rcall	.+1696   	; 0xc44 <__eewr_byte_m1284>
 						if(inputPin[counter] == '\0'){
  5a4:	88 81       	ld	r24, Y
  5a6:	88 23       	and	r24, r24
@@ -1206,7 +1206,7 @@ int TickFct_Controller(int state){
  650:	fe 01       	movw	r30, r28
  652:	ea 5b       	subi	r30, 0xBA	; 186
  654:	ff 4f       	sbci	r31, 0xFF	; 255
- 656:	15 c3       	rjmp	.+1578   	; 0xc82 <__tablejump2__>
+ 656:	e8 c2       	rjmp	.+1488   	; 0xc28 <__tablejump2__>
 		case controllerinit:
 			clearFlags();											
  658:	db df       	rcall	.-74     	; 0x610 <clearFlags>
@@ -1958,7 +1958,7 @@ unsigned char getCorrectPinLength(){
 	while(eeprom_read_byte(i) != '\0'){
  956:	8c 2f       	mov	r24, r28
  958:	90 e0       	ldi	r25, 0x00	; 0
- 95a:	99 d1       	rcall	.+818    	; 0xc8e <__eerd_byte_m1284>
+ 95a:	6c d1       	rcall	.+728    	; 0xc34 <__eerd_byte_m1284>
  95c:	81 11       	cpse	r24, r1
  95e:	fa cf       	rjmp	.-12     	; 0x954 <getCorrectPinLength+0x6>
 		++i;
@@ -2044,7 +2044,7 @@ int TickFct_CheckPin(int state){
  9c8:	c1 2f       	mov	r28, r17
  9ca:	d0 e0       	ldi	r29, 0x00	; 0
  9cc:	ce 01       	movw	r24, r28
- 9ce:	5f d1       	rcall	.+702    	; 0xc8e <__eerd_byte_m1284>
+ 9ce:	32 d1       	rcall	.+612    	; 0xc34 <__eerd_byte_m1284>
  9d0:	88 23       	and	r24, r24
  9d2:	19 f0       	breq	.+6      	; 0x9da <TickFct_CheckPin+0x74>
  9d4:	01 11       	cpse	r16, r1
@@ -2244,224 +2244,184 @@ int main(void)
 	DDRD = 0x00;	PORTD = 0xFF;
  ade:	1a b8       	out	0x0a, r1	; 10
  ae0:	8b b9       	out	0x0b, r24	; 11
-	eeprom_write_byte(correctPinAddr++, '0');
- ae2:	80 91 fb 01 	lds	r24, 0x01FB
- ae6:	91 e0       	ldi	r25, 0x01	; 1
- ae8:	98 0f       	add	r25, r24
- aea:	90 93 fb 01 	sts	0x01FB, r25
- aee:	60 e3       	ldi	r22, 0x30	; 48
- af0:	90 e0       	ldi	r25, 0x00	; 0
- af2:	d5 d0       	rcall	.+426    	; 0xc9e <__eewr_byte_m1284>
-	eeprom_write_byte(correctPinAddr++, '0');
- af4:	80 91 fb 01 	lds	r24, 0x01FB
- af8:	91 e0       	ldi	r25, 0x01	; 1
- afa:	98 0f       	add	r25, r24
- afc:	90 93 fb 01 	sts	0x01FB, r25
- b00:	60 e3       	ldi	r22, 0x30	; 48
- b02:	90 e0       	ldi	r25, 0x00	; 0
- b04:	cc d0       	rcall	.+408    	; 0xc9e <__eewr_byte_m1284>
-	eeprom_write_byte(correctPinAddr++, '0');
- b06:	80 91 fb 01 	lds	r24, 0x01FB
- b0a:	91 e0       	ldi	r25, 0x01	; 1
- b0c:	98 0f       	add	r25, r24
- b0e:	90 93 fb 01 	sts	0x01FB, r25
- b12:	60 e3       	ldi	r22, 0x30	; 48
- b14:	90 e0       	ldi	r25, 0x00	; 0
- b16:	c3 d0       	rcall	.+390    	; 0xc9e <__eewr_byte_m1284>
-	eeprom_write_byte(correctPinAddr++, '0');
- b18:	80 91 fb 01 	lds	r24, 0x01FB
- b1c:	91 e0       	ldi	r25, 0x01	; 1
- b1e:	98 0f       	add	r25, r24
- b20:	90 93 fb 01 	sts	0x01FB, r25
- b24:	60 e3       	ldi	r22, 0x30	; 48
- b26:	90 e0       	ldi	r25, 0x00	; 0
- b28:	ba d0       	rcall	.+372    	; 0xc9e <__eewr_byte_m1284>
-	eeprom_write_byte(correctPinAddr++, '\0');
- b2a:	80 91 fb 01 	lds	r24, 0x01FB
- b2e:	91 e0       	ldi	r25, 0x01	; 1
- b30:	98 0f       	add	r25, r24
- b32:	90 93 fb 01 	sts	0x01FB, r25
- b36:	60 e0       	ldi	r22, 0x00	; 0
- b38:	90 e0       	ldi	r25, 0x00	; 0
- b3a:	b1 d0       	rcall	.+354    	; 0xc9e <__eewr_byte_m1284>
 	initUSART(0);
- b3c:	80 e0       	ldi	r24, 0x00	; 0
- b3e:	9f db       	rcall	.-2242   	; 0x27e <initUSART>
+ ae2:	80 e0       	ldi	r24, 0x00	; 0
+ ae4:	cc db       	rcall	.-2152   	; 0x27e <initUSART>
 	initUSART(1);
- b40:	81 e0       	ldi	r24, 0x01	; 1
- b42:	9d db       	rcall	.-2246   	; 0x27e <initUSART>
+ ae6:	81 e0       	ldi	r24, 0x01	; 1
+ ae8:	ca db       	rcall	.-2156   	; 0x27e <initUSART>
 	LCD_init();
- b44:	6a db       	rcall	.-2348   	; 0x21a <LCD_init>
+ aea:	97 db       	rcall	.-2258   	; 0x21a <LCD_init>
 	tasks[0].state = controllerinit;
- b46:	10 92 01 02 	sts	0x0201, r1
- b4a:	10 92 00 02 	sts	0x0200, r1
+ aec:	10 92 01 02 	sts	0x0201, r1
+ af0:	10 92 00 02 	sts	0x0200, r1
 	tasks[0].period = 1;
- b4e:	81 e0       	ldi	r24, 0x01	; 1
- b50:	90 e0       	ldi	r25, 0x00	; 0
- b52:	a0 e0       	ldi	r26, 0x00	; 0
- b54:	b0 e0       	ldi	r27, 0x00	; 0
- b56:	80 93 02 02 	sts	0x0202, r24
- b5a:	90 93 03 02 	sts	0x0203, r25
- b5e:	a0 93 04 02 	sts	0x0204, r26
- b62:	b0 93 05 02 	sts	0x0205, r27
+ af4:	81 e0       	ldi	r24, 0x01	; 1
+ af6:	90 e0       	ldi	r25, 0x00	; 0
+ af8:	a0 e0       	ldi	r26, 0x00	; 0
+ afa:	b0 e0       	ldi	r27, 0x00	; 0
+ afc:	80 93 02 02 	sts	0x0202, r24
+ b00:	90 93 03 02 	sts	0x0203, r25
+ b04:	a0 93 04 02 	sts	0x0204, r26
+ b08:	b0 93 05 02 	sts	0x0205, r27
 	tasks[0].elapsedTime = 1;
- b66:	80 93 06 02 	sts	0x0206, r24
- b6a:	90 93 07 02 	sts	0x0207, r25
- b6e:	a0 93 08 02 	sts	0x0208, r26
- b72:	b0 93 09 02 	sts	0x0209, r27
+ b0c:	80 93 06 02 	sts	0x0206, r24
+ b10:	90 93 07 02 	sts	0x0207, r25
+ b14:	a0 93 08 02 	sts	0x0208, r26
+ b18:	b0 93 09 02 	sts	0x0209, r27
 	tasks[0].TickFct = &TickFct_Controller;
- b76:	8a e1       	ldi	r24, 0x1A	; 26
- b78:	93 e0       	ldi	r25, 0x03	; 3
- b7a:	90 93 0b 02 	sts	0x020B, r25
- b7e:	80 93 0a 02 	sts	0x020A, r24
+ b1c:	8a e1       	ldi	r24, 0x1A	; 26
+ b1e:	93 e0       	ldi	r25, 0x03	; 3
+ b20:	90 93 0b 02 	sts	0x020B, r25
+ b24:	80 93 0a 02 	sts	0x020A, r24
 	
 	tasks[1].state = bluetoothWait;
- b82:	10 92 0d 02 	sts	0x020D, r1
- b86:	10 92 0c 02 	sts	0x020C, r1
+ b28:	10 92 0d 02 	sts	0x020D, r1
+ b2c:	10 92 0c 02 	sts	0x020C, r1
 	tasks[1].period = 5;
- b8a:	85 e0       	ldi	r24, 0x05	; 5
- b8c:	90 e0       	ldi	r25, 0x00	; 0
- b8e:	a0 e0       	ldi	r26, 0x00	; 0
- b90:	b0 e0       	ldi	r27, 0x00	; 0
- b92:	80 93 0e 02 	sts	0x020E, r24
- b96:	90 93 0f 02 	sts	0x020F, r25
- b9a:	a0 93 10 02 	sts	0x0210, r26
- b9e:	b0 93 11 02 	sts	0x0211, r27
+ b30:	85 e0       	ldi	r24, 0x05	; 5
+ b32:	90 e0       	ldi	r25, 0x00	; 0
+ b34:	a0 e0       	ldi	r26, 0x00	; 0
+ b36:	b0 e0       	ldi	r27, 0x00	; 0
+ b38:	80 93 0e 02 	sts	0x020E, r24
+ b3c:	90 93 0f 02 	sts	0x020F, r25
+ b40:	a0 93 10 02 	sts	0x0210, r26
+ b44:	b0 93 11 02 	sts	0x0211, r27
 	tasks[1].elapsedTime = 5;
- ba2:	80 93 12 02 	sts	0x0212, r24
- ba6:	90 93 13 02 	sts	0x0213, r25
- baa:	a0 93 14 02 	sts	0x0214, r26
- bae:	b0 93 15 02 	sts	0x0215, r27
+ b48:	80 93 12 02 	sts	0x0212, r24
+ b4c:	90 93 13 02 	sts	0x0213, r25
+ b50:	a0 93 14 02 	sts	0x0214, r26
+ b54:	b0 93 15 02 	sts	0x0215, r27
 	tasks[1].TickFct = &TickFct_BluetoothReceiver;
- bb2:	2a ee       	ldi	r18, 0xEA	; 234
- bb4:	31 e0       	ldi	r19, 0x01	; 1
- bb6:	30 93 17 02 	sts	0x0217, r19
- bba:	20 93 16 02 	sts	0x0216, r18
+ b58:	2a ee       	ldi	r18, 0xEA	; 234
+ b5a:	31 e0       	ldi	r19, 0x01	; 1
+ b5c:	30 93 17 02 	sts	0x0217, r19
+ b60:	20 93 16 02 	sts	0x0216, r18
 	
 	tasks[2].state = keypadWait1;
- bbe:	10 92 19 02 	sts	0x0219, r1
- bc2:	10 92 18 02 	sts	0x0218, r1
+ b64:	10 92 19 02 	sts	0x0219, r1
+ b68:	10 92 18 02 	sts	0x0218, r1
 	tasks[2].period = 10;
- bc6:	4a e0       	ldi	r20, 0x0A	; 10
- bc8:	50 e0       	ldi	r21, 0x00	; 0
- bca:	60 e0       	ldi	r22, 0x00	; 0
- bcc:	70 e0       	ldi	r23, 0x00	; 0
- bce:	40 93 1a 02 	sts	0x021A, r20
- bd2:	50 93 1b 02 	sts	0x021B, r21
- bd6:	60 93 1c 02 	sts	0x021C, r22
- bda:	70 93 1d 02 	sts	0x021D, r23
+ b6c:	4a e0       	ldi	r20, 0x0A	; 10
+ b6e:	50 e0       	ldi	r21, 0x00	; 0
+ b70:	60 e0       	ldi	r22, 0x00	; 0
+ b72:	70 e0       	ldi	r23, 0x00	; 0
+ b74:	40 93 1a 02 	sts	0x021A, r20
+ b78:	50 93 1b 02 	sts	0x021B, r21
+ b7c:	60 93 1c 02 	sts	0x021C, r22
+ b80:	70 93 1d 02 	sts	0x021D, r23
 	tasks[2].elapsedTime = 10;
- bde:	40 93 1e 02 	sts	0x021E, r20
- be2:	50 93 1f 02 	sts	0x021F, r21
- be6:	60 93 20 02 	sts	0x0220, r22
- bea:	70 93 21 02 	sts	0x0221, r23
+ b84:	40 93 1e 02 	sts	0x021E, r20
+ b88:	50 93 1f 02 	sts	0x021F, r21
+ b8c:	60 93 20 02 	sts	0x0220, r22
+ b90:	70 93 21 02 	sts	0x0221, r23
 	tasks[2].TickFct = &TickFct_KeypadReceiver;
- bee:	26 e5       	ldi	r18, 0x56	; 86
- bf0:	32 e0       	ldi	r19, 0x02	; 2
- bf2:	30 93 23 02 	sts	0x0223, r19
- bf6:	20 93 22 02 	sts	0x0222, r18
+ b94:	26 e5       	ldi	r18, 0x56	; 86
+ b96:	32 e0       	ldi	r19, 0x02	; 2
+ b98:	30 93 23 02 	sts	0x0223, r19
+ b9c:	20 93 22 02 	sts	0x0222, r18
 	
 	tasks[3].state = checkInit;
- bfa:	10 92 25 02 	sts	0x0225, r1
- bfe:	10 92 24 02 	sts	0x0224, r1
+ ba0:	10 92 25 02 	sts	0x0225, r1
+ ba4:	10 92 24 02 	sts	0x0224, r1
 	tasks[3].period = 15;
- c02:	4f e0       	ldi	r20, 0x0F	; 15
- c04:	50 e0       	ldi	r21, 0x00	; 0
- c06:	60 e0       	ldi	r22, 0x00	; 0
- c08:	70 e0       	ldi	r23, 0x00	; 0
- c0a:	40 93 26 02 	sts	0x0226, r20
- c0e:	50 93 27 02 	sts	0x0227, r21
- c12:	60 93 28 02 	sts	0x0228, r22
- c16:	70 93 29 02 	sts	0x0229, r23
+ ba8:	4f e0       	ldi	r20, 0x0F	; 15
+ baa:	50 e0       	ldi	r21, 0x00	; 0
+ bac:	60 e0       	ldi	r22, 0x00	; 0
+ bae:	70 e0       	ldi	r23, 0x00	; 0
+ bb0:	40 93 26 02 	sts	0x0226, r20
+ bb4:	50 93 27 02 	sts	0x0227, r21
+ bb8:	60 93 28 02 	sts	0x0228, r22
+ bbc:	70 93 29 02 	sts	0x0229, r23
 	tasks[3].elapsedTime = 15;
- c1a:	40 93 2a 02 	sts	0x022A, r20
- c1e:	50 93 2b 02 	sts	0x022B, r21
- c22:	60 93 2c 02 	sts	0x022C, r22
- c26:	70 93 2d 02 	sts	0x022D, r23
+ bc0:	40 93 2a 02 	sts	0x022A, r20
+ bc4:	50 93 2b 02 	sts	0x022B, r21
+ bc8:	60 93 2c 02 	sts	0x022C, r22
+ bcc:	70 93 2d 02 	sts	0x022D, r23
 	tasks[3].TickFct = &TickFct_CheckPin;
- c2a:	23 eb       	ldi	r18, 0xB3	; 179
- c2c:	34 e0       	ldi	r19, 0x04	; 4
- c2e:	30 93 2f 02 	sts	0x022F, r19
- c32:	20 93 2e 02 	sts	0x022E, r18
+ bd0:	23 eb       	ldi	r18, 0xB3	; 179
+ bd2:	34 e0       	ldi	r19, 0x04	; 4
+ bd4:	30 93 2f 02 	sts	0x022F, r19
+ bd8:	20 93 2e 02 	sts	0x022E, r18
 	
 	tasks[4].state = usartInit;
- c36:	10 92 31 02 	sts	0x0231, r1
- c3a:	10 92 30 02 	sts	0x0230, r1
+ bdc:	10 92 31 02 	sts	0x0231, r1
+ be0:	10 92 30 02 	sts	0x0230, r1
 	tasks[4].period = 5;
- c3e:	80 93 32 02 	sts	0x0232, r24
- c42:	90 93 33 02 	sts	0x0233, r25
- c46:	a0 93 34 02 	sts	0x0234, r26
- c4a:	b0 93 35 02 	sts	0x0235, r27
+ be4:	80 93 32 02 	sts	0x0232, r24
+ be8:	90 93 33 02 	sts	0x0233, r25
+ bec:	a0 93 34 02 	sts	0x0234, r26
+ bf0:	b0 93 35 02 	sts	0x0235, r27
 	tasks[4].elapsedTime = 5;
- c4e:	80 93 36 02 	sts	0x0236, r24
- c52:	90 93 37 02 	sts	0x0237, r25
- c56:	a0 93 38 02 	sts	0x0238, r26
- c5a:	b0 93 39 02 	sts	0x0239, r27
+ bf4:	80 93 36 02 	sts	0x0236, r24
+ bf8:	90 93 37 02 	sts	0x0237, r25
+ bfc:	a0 93 38 02 	sts	0x0238, r26
+ c00:	b0 93 39 02 	sts	0x0239, r27
 	tasks[4].TickFct = &TickFct_USART;
- c5e:	84 e9       	ldi	r24, 0x94	; 148
- c60:	91 e0       	ldi	r25, 0x01	; 1
- c62:	90 93 3b 02 	sts	0x023B, r25
- c66:	80 93 3a 02 	sts	0x023A, r24
+ c04:	84 e9       	ldi	r24, 0x94	; 148
+ c06:	91 e0       	ldi	r25, 0x01	; 1
+ c08:	90 93 3b 02 	sts	0x023B, r25
+ c0c:	80 93 3a 02 	sts	0x023A, r24
 
 unsigned short tasksNum;
 unsigned short tasksPeriodGCD;
 
 void TimerSet(unsigned long ms){
 	TCNT1 = 0;		//Initialize avr counter
- c6a:	10 92 85 00 	sts	0x0085, r1
- c6e:	10 92 84 00 	sts	0x0084, r1
+ c10:	10 92 85 00 	sts	0x0085, r1
+ c14:	10 92 84 00 	sts	0x0084, r1
 					
 	OCR1A = 125 * ms;	// AVR output compare register OCR1A.
- c72:	8d e7       	ldi	r24, 0x7D	; 125
- c74:	90 e0       	ldi	r25, 0x00	; 0
- c76:	90 93 89 00 	sts	0x0089, r25
- c7a:	80 93 88 00 	sts	0x0088, r24
+ c18:	8d e7       	ldi	r24, 0x7D	; 125
+ c1a:	90 e0       	ldi	r25, 0x00	; 0
+ c1c:	90 93 89 00 	sts	0x0089, r25
+ c20:	80 93 88 00 	sts	0x0088, r24
 	
 	TimerSet(1);
 	TimerOn();
- c7e:	98 da       	rcall	.-2768   	; 0x1b0 <TimerOn>
- c80:	ff cf       	rjmp	.-2      	; 0xc80 <main+0x1b4>
+ c24:	c5 da       	rcall	.-2678   	; 0x1b0 <TimerOn>
+ c26:	ff cf       	rjmp	.-2      	; 0xc26 <main+0x15a>
 
-00000c82 <__tablejump2__>:
- c82:	ee 0f       	add	r30, r30
- c84:	ff 1f       	adc	r31, r31
+00000c28 <__tablejump2__>:
+ c28:	ee 0f       	add	r30, r30
+ c2a:	ff 1f       	adc	r31, r31
 
-00000c86 <__tablejump__>:
- c86:	05 90       	lpm	r0, Z+
- c88:	f4 91       	lpm	r31, Z
- c8a:	e0 2d       	mov	r30, r0
- c8c:	09 94       	ijmp
+00000c2c <__tablejump__>:
+ c2c:	05 90       	lpm	r0, Z+
+ c2e:	f4 91       	lpm	r31, Z
+ c30:	e0 2d       	mov	r30, r0
+ c32:	09 94       	ijmp
 
-00000c8e <__eerd_byte_m1284>:
- c8e:	f9 99       	sbic	0x1f, 1	; 31
- c90:	fe cf       	rjmp	.-4      	; 0xc8e <__eerd_byte_m1284>
- c92:	92 bd       	out	0x22, r25	; 34
- c94:	81 bd       	out	0x21, r24	; 33
- c96:	f8 9a       	sbi	0x1f, 0	; 31
- c98:	99 27       	eor	r25, r25
- c9a:	80 b5       	in	r24, 0x20	; 32
- c9c:	08 95       	ret
+00000c34 <__eerd_byte_m1284>:
+ c34:	f9 99       	sbic	0x1f, 1	; 31
+ c36:	fe cf       	rjmp	.-4      	; 0xc34 <__eerd_byte_m1284>
+ c38:	92 bd       	out	0x22, r25	; 34
+ c3a:	81 bd       	out	0x21, r24	; 33
+ c3c:	f8 9a       	sbi	0x1f, 0	; 31
+ c3e:	99 27       	eor	r25, r25
+ c40:	80 b5       	in	r24, 0x20	; 32
+ c42:	08 95       	ret
 
-00000c9e <__eewr_byte_m1284>:
- c9e:	26 2f       	mov	r18, r22
+00000c44 <__eewr_byte_m1284>:
+ c44:	26 2f       	mov	r18, r22
 
-00000ca0 <__eewr_r18_m1284>:
- ca0:	f9 99       	sbic	0x1f, 1	; 31
- ca2:	fe cf       	rjmp	.-4      	; 0xca0 <__eewr_r18_m1284>
- ca4:	1f ba       	out	0x1f, r1	; 31
- ca6:	92 bd       	out	0x22, r25	; 34
- ca8:	81 bd       	out	0x21, r24	; 33
- caa:	20 bd       	out	0x20, r18	; 32
- cac:	0f b6       	in	r0, 0x3f	; 63
- cae:	f8 94       	cli
- cb0:	fa 9a       	sbi	0x1f, 2	; 31
- cb2:	f9 9a       	sbi	0x1f, 1	; 31
- cb4:	0f be       	out	0x3f, r0	; 63
- cb6:	01 96       	adiw	r24, 0x01	; 1
- cb8:	08 95       	ret
+00000c46 <__eewr_r18_m1284>:
+ c46:	f9 99       	sbic	0x1f, 1	; 31
+ c48:	fe cf       	rjmp	.-4      	; 0xc46 <__eewr_r18_m1284>
+ c4a:	1f ba       	out	0x1f, r1	; 31
+ c4c:	92 bd       	out	0x22, r25	; 34
+ c4e:	81 bd       	out	0x21, r24	; 33
+ c50:	20 bd       	out	0x20, r18	; 32
+ c52:	0f b6       	in	r0, 0x3f	; 63
+ c54:	f8 94       	cli
+ c56:	fa 9a       	sbi	0x1f, 2	; 31
+ c58:	f9 9a       	sbi	0x1f, 1	; 31
+ c5a:	0f be       	out	0x3f, r0	; 63
+ c5c:	01 96       	adiw	r24, 0x01	; 1
+ c5e:	08 95       	ret
 
-00000cba <_exit>:
- cba:	f8 94       	cli
+00000c60 <_exit>:
+ c60:	f8 94       	cli
 
-00000cbc <__stop_program>:
- cbc:	ff cf       	rjmp	.-2      	; 0xcbc <__stop_program>
+00000c62 <__stop_program>:
+ c62:	ff cf       	rjmp	.-2      	; 0xc62 <__stop_program>

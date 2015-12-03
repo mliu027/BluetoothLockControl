@@ -259,7 +259,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xcbe
+.text           0x00000000      0xc64
  *(.vectors)
  .vectors       0x00000000       0x8c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51/crtm1284.o
                 0x00000000                __vector_default
@@ -422,23 +422,23 @@ END GROUP
  .text.__vector_13
                 0x00000a06       0xc6 BluetoothLockControl.o
                 0x00000a06                __vector_13
- .text.main     0x00000acc      0x1b6 BluetoothLockControl.o
+ .text.main     0x00000acc      0x15c BluetoothLockControl.o
                 0x00000acc                main
- .text.libgcc   0x00000c82        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_tablejump.o)
-                0x00000c82                __tablejump2__
-                0x00000c86                __tablejump__
+ .text.libgcc   0x00000c28        0xc e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_tablejump.o)
+                0x00000c28                __tablejump2__
+                0x00000c2c                __tablejump__
  .text.avr-libc
-                0x00000c8e       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eerd_byte_atmega1284.o)
-                0x00000c8e                __eerd_byte_m1284
+                0x00000c34       0x10 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eerd_byte_atmega1284.o)
+                0x00000c34                __eerd_byte_m1284
  .text.avr-libc
-                0x00000c9e       0x1c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eewr_byte_atmega1284.o)
-                0x00000c9e                __eewr_byte_m1284
-                0x00000ca0                __eewr_r18_m1284
-                0x00000cba                . = ALIGN (0x2)
+                0x00000c44       0x1c e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr51\libc.a(eewr_byte_atmega1284.o)
+                0x00000c44                __eewr_byte_m1284
+                0x00000c46                __eewr_r18_m1284
+                0x00000c60                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000cba        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
-                0x00000cba                _exit
-                0x00000cba                exit
+ .fini9         0x00000c60        0x0 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+                0x00000c60                _exit
+                0x00000c60                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -457,11 +457,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000cba        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
+ .fini0         0x00000c60        0x4 e:/program files (x86)/atmel/atmel toolchain/avr8 gcc/native/3.4.1061/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000cbe                _etext = .
+                0x00000c64                _etext = .
 
-.data           0x00800100       0xfa load address 0x00000cbe
+.data           0x00800100       0xfa load address 0x00000c64
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -505,8 +505,8 @@ END GROUP
                 0x00800267                checkCounter
                 0x00800268                newPinInputComplete
                 0x00800269                PROVIDE (__bss_end, .)
-                0x00000cbe                __data_load_start = LOADADDR (.data)
-                0x00000db8                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000c64                __data_load_start = LOADADDR (.data)
+                0x00000d5e                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x00800269        0x0
                 0x00800269                PROVIDE (__noinit_start, .)
@@ -580,17 +580,17 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1101
+.debug_info     0x00000000     0x109e
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000     0x1101 BluetoothLockControl.o
+ .debug_info    0x00000000     0x109e BluetoothLockControl.o
 
 .debug_abbrev   0x00000000      0x36b
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x36b BluetoothLockControl.o
 
-.debug_line     0x00000000      0xef6
+.debug_line     0x00000000      0xed8
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0xef6 BluetoothLockControl.o
+ .debug_line    0x00000000      0xed8 BluetoothLockControl.o
 
 .debug_frame    0x00000000      0x2e8
  *(.debug_frame)
