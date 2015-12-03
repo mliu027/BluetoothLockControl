@@ -202,12 +202,7 @@ int TickFct_Controller(int state){
 			}
 			break;
 		case controllerLockWaitRelease:
-			if(!doorClosed && lockedFlag ){
-				state = controllerIntrusionDetected;
-				PORTA = 0xFF;
-				LCD_DisplayString(1, "ALARM! Enter Pin: ");
-			}
-			else if(key != '\0'){
+			if(key != '\0'){
 				state = controllerLockWaitRelease;
 			}
 			else{
@@ -515,6 +510,7 @@ int TickFct_CheckPin(int state){
 
 enum SM_USART{usartInit, usartLocked, usartUnlocked};
 int TickFct_USART(int state){
+	unsigned char doorClosed = (~PIND & 0x10) >> 4;
 	switch(state){
 		case usartInit:
 			state = usartLocked;
@@ -538,7 +534,12 @@ int TickFct_USART(int state){
 				USART_Send(0x01, 1);
 				LCD_DisplayString(1, "Locking...");
 				delay_ms(5000);
-				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+				if(!doorClosed && lockedFlag ){
+					LCD_DisplayString(1, "ALARM! Enter Pin: ");
+				}
+				else{
+					LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+				}
 			}
 			else{
 				state = usartUnlocked;
