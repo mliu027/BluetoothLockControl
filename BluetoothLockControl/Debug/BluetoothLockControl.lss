@@ -3,29 +3,29 @@ BluetoothLockControl.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         000000fa  00800100  00000cae  00000d42  2**0
+  0 .data         000000fa  00800100  00000cbe  00000d52  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000cae  00000000  00000000  00000094  2**1
+  1 .text         00000cbe  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          0000006f  008001fa  008001fa  00000e3c  2**0
+  2 .bss          0000006f  008001fa  008001fa  00000e4c  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000e3c  2**0
+  3 .comment      00000030  00000000  00000000  00000e4c  2**0
                   CONTENTS, READONLY
-  4 .debug_aranges 00000118  00000000  00000000  00000e6c  2**0
+  4 .debug_aranges 00000118  00000000  00000000  00000e7c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000010e0  00000000  00000000  00000f84  2**0
+  5 .debug_info   00001101  00000000  00000000  00000f94  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000036b  00000000  00000000  00002064  2**0
+  6 .debug_abbrev 0000036b  00000000  00000000  00002095  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000ea6  00000000  00000000  000023cf  2**0
+  7 .debug_line   00000ef6  00000000  00000000  00002400  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000002e8  00000000  00000000  00003278  2**2
+  8 .debug_frame  000002e8  00000000  00000000  000032f8  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000677  00000000  00000000  00003560  2**0
+  9 .debug_str    00000677  00000000  00000000  000035e0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000fdd  00000000  00000000  00003bd7  2**0
+ 10 .debug_loc    00000f9b  00000000  00000000  00003c57  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000108  00000000  00000000  00004bb4  2**0
+ 11 .debug_ranges 00000108  00000000  00000000  00004bf2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -57,7 +57,7 @@ Disassembly of section .text:
   2e:	00 00       	nop
   30:	56 c0       	rjmp	.+172    	; 0xde <__bad_interrupt>
   32:	00 00       	nop
-  34:	e0 c4       	rjmp	.+2496   	; 0x9f6 <__vector_13>
+  34:	e8 c4       	rjmp	.+2512   	; 0xa06 <__vector_13>
   36:	00 00       	nop
   38:	52 c0       	rjmp	.+164    	; 0xde <__bad_interrupt>
   3a:	00 00       	nop
@@ -102,17 +102,17 @@ Disassembly of section .text:
   88:	2a c0       	rjmp	.+84     	; 0xde <__bad_interrupt>
   8a:	00 00       	nop
   8c:	2c 03       	fmul	r18, r20
-  8e:	38 03       	fmul	r19, r16
-  90:	7d 03       	fmul	r23, r21
-  92:	5a 03       	fmul	r21, r18
-  94:	96 03       	fmuls	r17, r22
-  96:	da 03       	fmulsu	r21, r18
-  98:	c0 03       	fmuls	r20, r16
-  9a:	ed 03       	fmulsu	r22, r21
-  9c:	01 04       	cpc	r0, r1
-  9e:	0f 04       	cpc	r0, r15
-  a0:	1b 04       	cpc	r1, r11
-  a2:	29 04       	cpc	r2, r9
+  8e:	3a 03       	fmul	r19, r18
+  90:	8b 03       	fmulsu	r16, r19
+  92:	60 03       	mulsu	r22, r16
+  94:	aa 03       	fmulsu	r18, r18
+  96:	fc 03       	fmulsu	r23, r20
+  98:	dc 03       	fmulsu	r21, r20
+  9a:	11 04       	cpc	r1, r1
+  9c:	2b 04       	cpc	r2, r11
+  9e:	3b 04       	cpc	r3, r11
+  a0:	44 04       	cpc	r4, r4
+  a2:	54 04       	cpc	r5, r4
 
 000000a4 <__ctors_end>:
   a4:	11 24       	eor	r1, r1
@@ -126,7 +126,7 @@ Disassembly of section .text:
   b0:	11 e0       	ldi	r17, 0x01	; 1
   b2:	a0 e0       	ldi	r26, 0x00	; 0
   b4:	b1 e0       	ldi	r27, 0x01	; 1
-  b6:	ee ea       	ldi	r30, 0xAE	; 174
+  b6:	ee eb       	ldi	r30, 0xBE	; 190
   b8:	fc e0       	ldi	r31, 0x0C	; 12
   ba:	00 e0       	ldi	r16, 0x00	; 0
   bc:	0b bf       	out	0x3b, r16	; 59
@@ -150,8 +150,8 @@ Disassembly of section .text:
   d4:	a9 36       	cpi	r26, 0x69	; 105
   d6:	b2 07       	cpc	r27, r18
   d8:	e1 f7       	brne	.-8      	; 0xd2 <.do_clear_bss_loop>
-  da:	f0 d4       	rcall	.+2528   	; 0xabc <main>
-  dc:	e6 c5       	rjmp	.+3020   	; 0xcaa <_exit>
+  da:	f8 d4       	rcall	.+2544   	; 0xacc <main>
+  dc:	ee c5       	rjmp	.+3036   	; 0xcba <_exit>
 
 000000de <__bad_interrupt>:
   de:	90 cf       	rjmp	.-224    	; 0x0 <__vectors>
@@ -1046,7 +1046,7 @@ int TickFct_KeypadReceiver(int state){
  59a:	98 0f       	add	r25, r24
  59c:	90 93 fb 01 	sts	0x01FB, r25
  5a0:	90 e0       	ldi	r25, 0x00	; 0
- 5a2:	75 d3       	rcall	.+1770   	; 0xc8e <__eewr_byte_m1284>
+ 5a2:	7d d3       	rcall	.+1786   	; 0xc9e <__eewr_byte_m1284>
 						if(inputPin[counter] == '\0'){
  5a4:	88 81       	ld	r24, Y
  5a6:	88 23       	and	r24, r24
@@ -1202,11 +1202,11 @@ int TickFct_Controller(int state){
  648:	cc 30       	cpi	r28, 0x0C	; 12
  64a:	d1 05       	cpc	r29, r1
  64c:	08 f0       	brcs	.+2      	; 0x650 <TickFct_Controller+0x1c>
- 64e:	1a c1       	rjmp	.+564    	; 0x884 <TickFct_Controller+0x250>
+ 64e:	4e c1       	rjmp	.+668    	; 0x8ec <TickFct_Controller+0x2b8>
  650:	fe 01       	movw	r30, r28
  652:	ea 5b       	subi	r30, 0xBA	; 186
  654:	ff 4f       	sbci	r31, 0xFF	; 255
- 656:	0d c3       	rjmp	.+1562   	; 0xc72 <__tablejump2__>
+ 656:	15 c3       	rjmp	.+1578   	; 0xc82 <__tablejump2__>
 		case controllerinit:
 			clearFlags();											
  658:	db df       	rcall	.-74     	; 0x610 <clearFlags>
@@ -1223,1119 +1223,1245 @@ int TickFct_Controller(int state){
  668:	71 e0       	ldi	r23, 0x01	; 1
  66a:	81 e0       	ldi	r24, 0x01	; 1
  66c:	ee dd       	rcall	.-1060   	; 0x24a <LCD_DisplayString>
+	switch(state){
+		case controllerinit:
+			clearFlags();											
+			lockedFlag = 1;
+			showPin = 0;
+			state = controllerWait;
+ 66e:	c1 e0       	ldi	r28, 0x01	; 1
+ 670:	d0 e0       	ldi	r29, 0x00	; 0
+			clearInputPin();
+			LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
 			break;
- 66e:	3b c1       	rjmp	.+630    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 672:	59 c1       	rjmp	.+690    	; 0x926 <TickFct_Controller+0x2f2>
 		case controllerWait:
 			if(!doorClosed && lockedFlag ){
- 670:	21 11       	cpse	r18, r1
- 672:	09 c0       	rjmp	.+18     	; 0x686 <TickFct_Controller+0x52>
- 674:	90 91 fe 01 	lds	r25, 0x01FE
- 678:	99 23       	and	r25, r25
- 67a:	29 f0       	breq	.+10     	; 0x686 <TickFct_Controller+0x52>
+ 674:	21 11       	cpse	r18, r1
+ 676:	0d c0       	rjmp	.+26     	; 0x692 <TickFct_Controller+0x5e>
+ 678:	90 91 fe 01 	lds	r25, 0x01FE
+ 67c:	99 23       	and	r25, r25
+ 67e:	49 f0       	breq	.+18     	; 0x692 <TickFct_Controller+0x5e>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 680:	8f ef       	ldi	r24, 0xFF	; 255
+ 682:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 67c:	64 e6       	ldi	r22, 0x64	; 100
- 67e:	71 e0       	ldi	r23, 0x01	; 1
- 680:	81 e0       	ldi	r24, 0x01	; 1
- 682:	e3 dd       	rcall	.-1082   	; 0x24a <LCD_DisplayString>
- 684:	21 c1       	rjmp	.+578    	; 0x8c8 <TickFct_Controller+0x294>
+ 684:	64 e6       	ldi	r22, 0x64	; 100
+ 686:	71 e0       	ldi	r23, 0x01	; 1
+ 688:	81 e0       	ldi	r24, 0x01	; 1
+ 68a:	df dd       	rcall	.-1090   	; 0x24a <LCD_DisplayString>
+			clearInputPin();
+			LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+			break;
+		case controllerWait:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 68c:	c9 e0       	ldi	r28, 0x09	; 9
+ 68e:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 690:	4a c1       	rjmp	.+660    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(key == 'A'){
- 686:	81 34       	cpi	r24, 0x41	; 65
- 688:	49 f4       	brne	.+18     	; 0x69c <TickFct_Controller+0x68>
+ 692:	81 34       	cpi	r24, 0x41	; 65
+ 694:	49 f4       	brne	.+18     	; 0x6a8 <TickFct_Controller+0x74>
 				state = controllerKeypad;
 				keypadEnable = 1;
- 68a:	81 e0       	ldi	r24, 0x01	; 1
- 68c:	80 93 65 02 	sts	0x0265, r24
-				clearInputPin();
- 690:	98 de       	rcall	.-720    	; 0x3c2 <clearInputPin>
-				LCD_DisplayString(1, "Pin: ");
- 692:	61 e7       	ldi	r22, 0x71	; 113
- 694:	71 e0       	ldi	r23, 0x01	; 1
  696:	81 e0       	ldi	r24, 0x01	; 1
- 698:	d8 dd       	rcall	.-1104   	; 0x24a <LCD_DisplayString>
- 69a:	2a c1       	rjmp	.+596    	; 0x8f0 <TickFct_Controller+0x2bc>
+ 698:	80 93 65 02 	sts	0x0265, r24
+				clearInputPin();
+ 69c:	92 de       	rcall	.-732    	; 0x3c2 <clearInputPin>
+				LCD_DisplayString(1, "Pin: ");
+ 69e:	61 e7       	ldi	r22, 0x71	; 113
+ 6a0:	71 e0       	ldi	r23, 0x01	; 1
+ 6a2:	81 e0       	ldi	r24, 0x01	; 1
+ 6a4:	d2 dd       	rcall	.-1116   	; 0x24a <LCD_DisplayString>
+ 6a6:	3a c1       	rjmp	.+628    	; 0x91c <TickFct_Controller+0x2e8>
 			}
 			else if(key == 'B'){
- 69c:	82 34       	cpi	r24, 0x42	; 66
- 69e:	09 f0       	breq	.+2      	; 0x6a2 <TickFct_Controller+0x6e>
- 6a0:	22 c1       	rjmp	.+580    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 6a8:	82 34       	cpi	r24, 0x42	; 66
+ 6aa:	09 f0       	breq	.+2      	; 0x6ae <TickFct_Controller+0x7a>
+ 6ac:	3c c1       	rjmp	.+632    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerBluetooth;
 				bluetoothEnable = 1;
- 6a2:	81 e0       	ldi	r24, 0x01	; 1
- 6a4:	80 93 40 02 	sts	0x0240, r24
-				clearInputPin();
- 6a8:	8c de       	rcall	.-744    	; 0x3c2 <clearInputPin>
-				LCD_DisplayString(1, "Waiting to Rec  C to Cancel");
- 6aa:	67 e7       	ldi	r22, 0x77	; 119
- 6ac:	71 e0       	ldi	r23, 0x01	; 1
  6ae:	81 e0       	ldi	r24, 0x01	; 1
- 6b0:	cc dd       	rcall	.-1128   	; 0x24a <LCD_DisplayString>
- 6b2:	26 c1       	rjmp	.+588    	; 0x900 <TickFct_Controller+0x2cc>
+ 6b0:	80 93 40 02 	sts	0x0240, r24
+				clearInputPin();
+ 6b4:	86 de       	rcall	.-756    	; 0x3c2 <clearInputPin>
+				LCD_DisplayString(1, "Waiting to Rec  C to Cancel");
+ 6b6:	67 e7       	ldi	r22, 0x77	; 119
+ 6b8:	71 e0       	ldi	r23, 0x01	; 1
+ 6ba:	81 e0       	ldi	r24, 0x01	; 1
+ 6bc:	c6 dd       	rcall	.-1140   	; 0x24a <LCD_DisplayString>
+ 6be:	19 c1       	rjmp	.+562    	; 0x8f2 <TickFct_Controller+0x2be>
 			}
 			break;
 		case controllerBluetooth:
 			if(!doorClosed && lockedFlag ){
- 6b4:	21 11       	cpse	r18, r1
- 6b6:	09 c0       	rjmp	.+18     	; 0x6ca <TickFct_Controller+0x96>
- 6b8:	90 91 fe 01 	lds	r25, 0x01FE
- 6bc:	99 23       	and	r25, r25
- 6be:	29 f0       	breq	.+10     	; 0x6ca <TickFct_Controller+0x96>
+ 6c0:	21 11       	cpse	r18, r1
+ 6c2:	0d c0       	rjmp	.+26     	; 0x6de <TickFct_Controller+0xaa>
+ 6c4:	90 91 fe 01 	lds	r25, 0x01FE
+ 6c8:	99 23       	and	r25, r25
+ 6ca:	49 f0       	breq	.+18     	; 0x6de <TickFct_Controller+0xaa>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 6cc:	8f ef       	ldi	r24, 0xFF	; 255
+ 6ce:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 6c0:	64 e6       	ldi	r22, 0x64	; 100
- 6c2:	71 e0       	ldi	r23, 0x01	; 1
- 6c4:	81 e0       	ldi	r24, 0x01	; 1
- 6c6:	c1 dd       	rcall	.-1150   	; 0x24a <LCD_DisplayString>
- 6c8:	ff c0       	rjmp	.+510    	; 0x8c8 <TickFct_Controller+0x294>
+ 6d0:	64 e6       	ldi	r22, 0x64	; 100
+ 6d2:	71 e0       	ldi	r23, 0x01	; 1
+ 6d4:	81 e0       	ldi	r24, 0x01	; 1
+ 6d6:	b9 dd       	rcall	.-1166   	; 0x24a <LCD_DisplayString>
+				LCD_DisplayString(1, "Waiting to Rec  C to Cancel");
+			}
+			break;
+		case controllerBluetooth:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 6d8:	c9 e0       	ldi	r28, 0x09	; 9
+ 6da:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 6dc:	24 c1       	rjmp	.+584    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(key == 'C'){
- 6ca:	83 34       	cpi	r24, 0x43	; 67
- 6cc:	41 f4       	brne	.+16     	; 0x6de <TickFct_Controller+0xaa>
+ 6de:	83 34       	cpi	r24, 0x43	; 67
+ 6e0:	51 f4       	brne	.+20     	; 0x6f6 <TickFct_Controller+0xc2>
 				state = controllerWait;
 				bluetoothEnable = 0;
- 6ce:	10 92 40 02 	sts	0x0240, r1
+ 6e2:	10 92 40 02 	sts	0x0240, r1
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
- 6d2:	68 e3       	ldi	r22, 0x38	; 56
- 6d4:	71 e0       	ldi	r23, 0x01	; 1
- 6d6:	81 e0       	ldi	r24, 0x01	; 1
- 6d8:	b8 dd       	rcall	.-1168   	; 0x24a <LCD_DisplayString>
+ 6e6:	68 e3       	ldi	r22, 0x38	; 56
+ 6e8:	71 e0       	ldi	r23, 0x01	; 1
+ 6ea:	81 e0       	ldi	r24, 0x01	; 1
+ 6ec:	ae dd       	rcall	.-1188   	; 0x24a <LCD_DisplayString>
 				clearFlags();
- 6da:	9a df       	rcall	.-204    	; 0x610 <clearFlags>
- 6dc:	04 c1       	rjmp	.+520    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 6ee:	90 df       	rcall	.-224    	; 0x610 <clearFlags>
+				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key == 'C'){
+				state = controllerWait;
+ 6f0:	c1 e0       	ldi	r28, 0x01	; 1
+ 6f2:	d0 e0       	ldi	r29, 0x00	; 0
+ 6f4:	18 c1       	rjmp	.+560    	; 0x926 <TickFct_Controller+0x2f2>
+				bluetoothEnable = 0;
+				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+				clearFlags();
 			}
 			else if(pinInputComplete){
- 6de:	80 91 3f 02 	lds	r24, 0x023F
- 6e2:	88 23       	and	r24, r24
- 6e4:	09 f4       	brne	.+2      	; 0x6e8 <TickFct_Controller+0xb4>
- 6e6:	0c c1       	rjmp	.+536    	; 0x900 <TickFct_Controller+0x2cc>
+ 6f6:	80 91 3f 02 	lds	r24, 0x023F
+ 6fa:	88 23       	and	r24, r24
+ 6fc:	09 f4       	brne	.+2      	; 0x700 <TickFct_Controller+0xcc>
+ 6fe:	f9 c0       	rjmp	.+498    	; 0x8f2 <TickFct_Controller+0x2be>
 				state = controllerCheck;
 				checkPinFlag = 1;
- 6e8:	81 e0       	ldi	r24, 0x01	; 1
- 6ea:	80 93 ff 01 	sts	0x01FF, r24
+ 700:	81 e0       	ldi	r24, 0x01	; 1
+ 702:	80 93 ff 01 	sts	0x01FF, r24
 				bluetoothEnable = 0;
- 6ee:	10 92 40 02 	sts	0x0240, r1
+ 706:	10 92 40 02 	sts	0x0240, r1
 				LCD_DisplayString(1, "Checking...     C to Cancel");
- 6f2:	63 e9       	ldi	r22, 0x93	; 147
- 6f4:	71 e0       	ldi	r23, 0x01	; 1
- 6f6:	a9 dd       	rcall	.-1198   	; 0x24a <LCD_DisplayString>
- 6f8:	0b c1       	rjmp	.+534    	; 0x910 <TickFct_Controller+0x2dc>
+ 70a:	63 e9       	ldi	r22, 0x93	; 147
+ 70c:	71 e0       	ldi	r23, 0x01	; 1
+ 70e:	9d dd       	rcall	.-1222   	; 0x24a <LCD_DisplayString>
+				bluetoothEnable = 0;
+				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+				clearFlags();
+			}
+			else if(pinInputComplete){
+				state = controllerCheck;
+ 710:	c4 e0       	ldi	r28, 0x04	; 4
+ 712:	d0 e0       	ldi	r29, 0x00	; 0
+ 714:	08 c1       	rjmp	.+528    	; 0x926 <TickFct_Controller+0x2f2>
 			else{
 				state = controllerBluetooth;
 			}
 			break;
 		case controllerKeypad:
 			if(!doorClosed && lockedFlag ){
- 6fa:	21 11       	cpse	r18, r1
- 6fc:	09 c0       	rjmp	.+18     	; 0x710 <TickFct_Controller+0xdc>
- 6fe:	80 91 fe 01 	lds	r24, 0x01FE
- 702:	88 23       	and	r24, r24
- 704:	29 f0       	breq	.+10     	; 0x710 <TickFct_Controller+0xdc>
+ 716:	21 11       	cpse	r18, r1
+ 718:	0d c0       	rjmp	.+26     	; 0x734 <TickFct_Controller+0x100>
+ 71a:	80 91 fe 01 	lds	r24, 0x01FE
+ 71e:	88 23       	and	r24, r24
+ 720:	49 f0       	breq	.+18     	; 0x734 <TickFct_Controller+0x100>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 722:	8f ef       	ldi	r24, 0xFF	; 255
+ 724:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 706:	64 e6       	ldi	r22, 0x64	; 100
- 708:	71 e0       	ldi	r23, 0x01	; 1
- 70a:	81 e0       	ldi	r24, 0x01	; 1
- 70c:	9e dd       	rcall	.-1220   	; 0x24a <LCD_DisplayString>
- 70e:	dc c0       	rjmp	.+440    	; 0x8c8 <TickFct_Controller+0x294>
+ 726:	64 e6       	ldi	r22, 0x64	; 100
+ 728:	71 e0       	ldi	r23, 0x01	; 1
+ 72a:	81 e0       	ldi	r24, 0x01	; 1
+ 72c:	8e dd       	rcall	.-1252   	; 0x24a <LCD_DisplayString>
+				state = controllerBluetooth;
+			}
+			break;
+		case controllerKeypad:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 72e:	c9 e0       	ldi	r28, 0x09	; 9
+ 730:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 732:	f9 c0       	rjmp	.+498    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(pinInputComplete){
- 710:	80 91 3f 02 	lds	r24, 0x023F
- 714:	88 23       	and	r24, r24
- 716:	09 f4       	brne	.+2      	; 0x71a <TickFct_Controller+0xe6>
- 718:	eb c0       	rjmp	.+470    	; 0x8f0 <TickFct_Controller+0x2bc>
+ 734:	80 91 3f 02 	lds	r24, 0x023F
+ 738:	88 23       	and	r24, r24
+ 73a:	09 f4       	brne	.+2      	; 0x73e <TickFct_Controller+0x10a>
+ 73c:	ef c0       	rjmp	.+478    	; 0x91c <TickFct_Controller+0x2e8>
 				state = controllerCheck;
 				checkPinFlag = 1;
- 71a:	81 e0       	ldi	r24, 0x01	; 1
- 71c:	80 93 ff 01 	sts	0x01FF, r24
+ 73e:	81 e0       	ldi	r24, 0x01	; 1
+ 740:	80 93 ff 01 	sts	0x01FF, r24
 				keypadEnable = 0;
- 720:	10 92 65 02 	sts	0x0265, r1
+ 744:	10 92 65 02 	sts	0x0265, r1
 				LCD_DisplayString(1, "Checking...     C to cancel");
- 724:	6f ea       	ldi	r22, 0xAF	; 175
- 726:	71 e0       	ldi	r23, 0x01	; 1
- 728:	90 dd       	rcall	.-1248   	; 0x24a <LCD_DisplayString>
- 72a:	f2 c0       	rjmp	.+484    	; 0x910 <TickFct_Controller+0x2dc>
+ 748:	6f ea       	ldi	r22, 0xAF	; 175
+ 74a:	71 e0       	ldi	r23, 0x01	; 1
+ 74c:	7e dd       	rcall	.-1284   	; 0x24a <LCD_DisplayString>
+				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(pinInputComplete){
+				state = controllerCheck;
+ 74e:	c4 e0       	ldi	r28, 0x04	; 4
+ 750:	d0 e0       	ldi	r29, 0x00	; 0
+ 752:	e9 c0       	rjmp	.+466    	; 0x926 <TickFct_Controller+0x2f2>
 			else{
 				state = controllerKeypad;
 			}
 			break;
 		case controllerCheck:
 			if(!doorClosed && lockedFlag ){
- 72c:	21 11       	cpse	r18, r1
- 72e:	09 c0       	rjmp	.+18     	; 0x742 <TickFct_Controller+0x10e>
- 730:	90 91 fe 01 	lds	r25, 0x01FE
- 734:	99 23       	and	r25, r25
- 736:	29 f0       	breq	.+10     	; 0x742 <TickFct_Controller+0x10e>
+ 754:	21 11       	cpse	r18, r1
+ 756:	0d c0       	rjmp	.+26     	; 0x772 <TickFct_Controller+0x13e>
+ 758:	90 91 fe 01 	lds	r25, 0x01FE
+ 75c:	99 23       	and	r25, r25
+ 75e:	49 f0       	breq	.+18     	; 0x772 <TickFct_Controller+0x13e>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 760:	8f ef       	ldi	r24, 0xFF	; 255
+ 762:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 738:	64 e6       	ldi	r22, 0x64	; 100
- 73a:	71 e0       	ldi	r23, 0x01	; 1
- 73c:	81 e0       	ldi	r24, 0x01	; 1
- 73e:	85 dd       	rcall	.-1270   	; 0x24a <LCD_DisplayString>
- 740:	c3 c0       	rjmp	.+390    	; 0x8c8 <TickFct_Controller+0x294>
+ 764:	64 e6       	ldi	r22, 0x64	; 100
+ 766:	71 e0       	ldi	r23, 0x01	; 1
+ 768:	81 e0       	ldi	r24, 0x01	; 1
+ 76a:	6f dd       	rcall	.-1314   	; 0x24a <LCD_DisplayString>
+				state = controllerKeypad;
+			}
+			break;
+		case controllerCheck:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 76c:	c9 e0       	ldi	r28, 0x09	; 9
+ 76e:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 770:	da c0       	rjmp	.+436    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(key == 'C'){
- 742:	83 34       	cpi	r24, 0x43	; 67
- 744:	39 f4       	brne	.+14     	; 0x754 <TickFct_Controller+0x120>
+ 772:	83 34       	cpi	r24, 0x43	; 67
+ 774:	49 f4       	brne	.+18     	; 0x788 <TickFct_Controller+0x154>
 				state = controllerWait;
 				clearInputPin();
- 746:	3d de       	rcall	.-902    	; 0x3c2 <clearInputPin>
+ 776:	25 de       	rcall	.-950    	; 0x3c2 <clearInputPin>
 				clearFlags();
- 748:	63 df       	rcall	.-314    	; 0x610 <clearFlags>
+ 778:	4b df       	rcall	.-362    	; 0x610 <clearFlags>
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
- 74a:	68 e3       	ldi	r22, 0x38	; 56
- 74c:	71 e0       	ldi	r23, 0x01	; 1
- 74e:	81 e0       	ldi	r24, 0x01	; 1
- 750:	7c dd       	rcall	.-1288   	; 0x24a <LCD_DisplayString>
- 752:	c9 c0       	rjmp	.+402    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 77a:	68 e3       	ldi	r22, 0x38	; 56
+ 77c:	71 e0       	ldi	r23, 0x01	; 1
+ 77e:	81 e0       	ldi	r24, 0x01	; 1
+ 780:	64 dd       	rcall	.-1336   	; 0x24a <LCD_DisplayString>
+				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(key == 'C'){
+				state = controllerWait;
+ 782:	c1 e0       	ldi	r28, 0x01	; 1
+ 784:	d0 e0       	ldi	r29, 0x00	; 0
+ 786:	cf c0       	rjmp	.+414    	; 0x926 <TickFct_Controller+0x2f2>
+				clearInputPin();
+				clearFlags();
+				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
 			}
 			else if(checkPinFlag){
- 754:	80 91 ff 01 	lds	r24, 0x01FF
- 758:	81 11       	cpse	r24, r1
- 75a:	da c0       	rjmp	.+436    	; 0x910 <TickFct_Controller+0x2dc>
+ 788:	80 91 ff 01 	lds	r24, 0x01FF
+ 78c:	81 11       	cpse	r24, r1
+ 78e:	cb c0       	rjmp	.+406    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerCheck;
 			}
 			else{
 				if(lockedFlag){
- 75c:	80 91 fe 01 	lds	r24, 0x01FE
- 760:	88 23       	and	r24, r24
- 762:	49 f0       	breq	.+18     	; 0x776 <TickFct_Controller+0x142>
+ 790:	80 91 fe 01 	lds	r24, 0x01FE
+ 794:	88 23       	and	r24, r24
+ 796:	49 f0       	breq	.+18     	; 0x7aa <TickFct_Controller+0x176>
 					state = controllerLocked;
 					controlCounter = 0;
- 764:	10 92 63 02 	sts	0x0263, r1
- 768:	10 92 62 02 	sts	0x0262, r1
+ 798:	10 92 63 02 	sts	0x0263, r1
+ 79c:	10 92 62 02 	sts	0x0262, r1
 					LCD_DisplayString(1, "Incorrect Pin");
- 76c:	6b ec       	ldi	r22, 0xCB	; 203
- 76e:	71 e0       	ldi	r23, 0x01	; 1
- 770:	81 e0       	ldi	r24, 0x01	; 1
- 772:	6b dd       	rcall	.-1322   	; 0x24a <LCD_DisplayString>
- 774:	91 c0       	rjmp	.+290    	; 0x898 <TickFct_Controller+0x264>
+ 7a0:	6b ec       	ldi	r22, 0xCB	; 203
+ 7a2:	71 e0       	ldi	r23, 0x01	; 1
+ 7a4:	81 e0       	ldi	r24, 0x01	; 1
+ 7a6:	51 dd       	rcall	.-1374   	; 0x24a <LCD_DisplayString>
+ 7a8:	aa c0       	rjmp	.+340    	; 0x8fe <TickFct_Controller+0x2ca>
 				}
 				else{
 					state = controllerUnlocked;
 					LCD_DisplayString(1, "Press A to Lock C to change Pin");
- 776:	69 ed       	ldi	r22, 0xD9	; 217
- 778:	71 e0       	ldi	r23, 0x01	; 1
- 77a:	81 e0       	ldi	r24, 0x01	; 1
- 77c:	66 dd       	rcall	.-1332   	; 0x24a <LCD_DisplayString>
- 77e:	9a c0       	rjmp	.+308    	; 0x8b4 <TickFct_Controller+0x280>
+ 7aa:	69 ed       	ldi	r22, 0xD9	; 217
+ 7ac:	71 e0       	ldi	r23, 0x01	; 1
+ 7ae:	81 e0       	ldi	r24, 0x01	; 1
+ 7b0:	4c dd       	rcall	.-1384   	; 0x24a <LCD_DisplayString>
+					state = controllerLocked;
+					controlCounter = 0;
+					LCD_DisplayString(1, "Incorrect Pin");
+				}
+				else{
+					state = controllerUnlocked;
+ 7b2:	c5 e0       	ldi	r28, 0x05	; 5
+ 7b4:	d0 e0       	ldi	r29, 0x00	; 0
+ 7b6:	b7 c0       	rjmp	.+366    	; 0x926 <TickFct_Controller+0x2f2>
+					LCD_DisplayString(1, "Press A to Lock C to change Pin");
 				}
 			}
 			break;
 		case controllerLocked:
 			if(!doorClosed && lockedFlag ){
- 780:	21 11       	cpse	r18, r1
- 782:	09 c0       	rjmp	.+18     	; 0x796 <TickFct_Controller+0x162>
- 784:	80 91 fe 01 	lds	r24, 0x01FE
- 788:	88 23       	and	r24, r24
- 78a:	29 f0       	breq	.+10     	; 0x796 <TickFct_Controller+0x162>
+ 7b8:	21 11       	cpse	r18, r1
+ 7ba:	0d c0       	rjmp	.+26     	; 0x7d6 <TickFct_Controller+0x1a2>
+ 7bc:	80 91 fe 01 	lds	r24, 0x01FE
+ 7c0:	88 23       	and	r24, r24
+ 7c2:	49 f0       	breq	.+18     	; 0x7d6 <TickFct_Controller+0x1a2>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 7c4:	8f ef       	ldi	r24, 0xFF	; 255
+ 7c6:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 78c:	64 e6       	ldi	r22, 0x64	; 100
- 78e:	71 e0       	ldi	r23, 0x01	; 1
- 790:	81 e0       	ldi	r24, 0x01	; 1
- 792:	5b dd       	rcall	.-1354   	; 0x24a <LCD_DisplayString>
- 794:	99 c0       	rjmp	.+306    	; 0x8c8 <TickFct_Controller+0x294>
+ 7c8:	64 e6       	ldi	r22, 0x64	; 100
+ 7ca:	71 e0       	ldi	r23, 0x01	; 1
+ 7cc:	81 e0       	ldi	r24, 0x01	; 1
+ 7ce:	3d dd       	rcall	.-1414   	; 0x24a <LCD_DisplayString>
+				}
+			}
+			break;
+		case controllerLocked:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 7d0:	c9 e0       	ldi	r28, 0x09	; 9
+ 7d2:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 7d4:	a8 c0       	rjmp	.+336    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(controlCounter >= 750){
- 796:	80 91 62 02 	lds	r24, 0x0262
- 79a:	90 91 63 02 	lds	r25, 0x0263
- 79e:	8e 3e       	cpi	r24, 0xEE	; 238
- 7a0:	92 40       	sbci	r25, 0x02	; 2
- 7a2:	08 f4       	brcc	.+2      	; 0x7a6 <TickFct_Controller+0x172>
- 7a4:	79 c0       	rjmp	.+242    	; 0x898 <TickFct_Controller+0x264>
+ 7d6:	80 91 62 02 	lds	r24, 0x0262
+ 7da:	90 91 63 02 	lds	r25, 0x0263
+ 7de:	8e 3e       	cpi	r24, 0xEE	; 238
+ 7e0:	92 40       	sbci	r25, 0x02	; 2
+ 7e2:	08 f4       	brcc	.+2      	; 0x7e6 <TickFct_Controller+0x1b2>
+ 7e4:	8c c0       	rjmp	.+280    	; 0x8fe <TickFct_Controller+0x2ca>
 				state = controllerWait;
 				clearInputPin();
- 7a6:	0d de       	rcall	.-998    	; 0x3c2 <clearInputPin>
+ 7e6:	ed dd       	rcall	.-1062   	; 0x3c2 <clearInputPin>
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
- 7a8:	68 e3       	ldi	r22, 0x38	; 56
- 7aa:	71 e0       	ldi	r23, 0x01	; 1
- 7ac:	81 e0       	ldi	r24, 0x01	; 1
- 7ae:	4d dd       	rcall	.-1382   	; 0x24a <LCD_DisplayString>
+ 7e8:	68 e3       	ldi	r22, 0x38	; 56
+ 7ea:	71 e0       	ldi	r23, 0x01	; 1
+ 7ec:	81 e0       	ldi	r24, 0x01	; 1
+ 7ee:	2d dd       	rcall	.-1446   	; 0x24a <LCD_DisplayString>
 				clearFlags();
- 7b0:	2f df       	rcall	.-418    	; 0x610 <clearFlags>
- 7b2:	99 c0       	rjmp	.+306    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 7f0:	0f df       	rcall	.-482    	; 0x610 <clearFlags>
+				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+			}
+			else if(controlCounter >= 750){
+				state = controllerWait;
+ 7f2:	c1 e0       	ldi	r28, 0x01	; 1
+ 7f4:	d0 e0       	ldi	r29, 0x00	; 0
+ 7f6:	97 c0       	rjmp	.+302    	; 0x926 <TickFct_Controller+0x2f2>
 			else{
 				state = controllerLocked;
 			}
 			break;
 		case controllerUnlocked:
 			if(key == 'A'){
- 7b4:	81 34       	cpi	r24, 0x41	; 65
- 7b6:	09 f4       	brne	.+2      	; 0x7ba <TickFct_Controller+0x186>
- 7b8:	6a c0       	rjmp	.+212    	; 0x88e <TickFct_Controller+0x25a>
+ 7f8:	81 34       	cpi	r24, 0x41	; 65
+ 7fa:	09 f4       	brne	.+2      	; 0x7fe <TickFct_Controller+0x1ca>
+ 7fc:	8c c0       	rjmp	.+280    	; 0x916 <TickFct_Controller+0x2e2>
 				state = controllerLockWaitRelease;
 			}
 			else if(key == 'C'){
- 7ba:	83 34       	cpi	r24, 0x43	; 67
- 7bc:	09 f0       	breq	.+2      	; 0x7c0 <TickFct_Controller+0x18c>
- 7be:	7a c0       	rjmp	.+244    	; 0x8b4 <TickFct_Controller+0x280>
+ 7fe:	83 34       	cpi	r24, 0x43	; 67
+ 800:	09 f0       	breq	.+2      	; 0x804 <TickFct_Controller+0x1d0>
+ 802:	91 c0       	rjmp	.+290    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerChangePin;
 				showPin = 1;
- 7c0:	81 e0       	ldi	r24, 0x01	; 1
- 7c2:	80 93 64 02 	sts	0x0264, r24
+ 804:	81 e0       	ldi	r24, 0x01	; 1
+ 806:	80 93 64 02 	sts	0x0264, r24
 				keypadEnable = 1;
- 7c6:	80 93 65 02 	sts	0x0265, r24
+ 80a:	80 93 65 02 	sts	0x0265, r24
 				pinInputComplete = 0;
- 7ca:	10 92 3f 02 	sts	0x023F, r1
+ 80e:	10 92 3f 02 	sts	0x023F, r1
 				clearInputPin();
- 7ce:	f9 dd       	rcall	.-1038   	; 0x3c2 <clearInputPin>
+ 812:	d7 dd       	rcall	.-1106   	; 0x3c2 <clearInputPin>
 				LCD_DisplayString(1, "Pin: ");
- 7d0:	61 e7       	ldi	r22, 0x71	; 113
- 7d2:	71 e0       	ldi	r23, 0x01	; 1
- 7d4:	81 e0       	ldi	r24, 0x01	; 1
- 7d6:	39 dd       	rcall	.-1422   	; 0x24a <LCD_DisplayString>
- 7d8:	72 c0       	rjmp	.+228    	; 0x8be <TickFct_Controller+0x28a>
+ 814:	61 e7       	ldi	r22, 0x71	; 113
+ 816:	71 e0       	ldi	r23, 0x01	; 1
+ 818:	81 e0       	ldi	r24, 0x01	; 1
+ 81a:	17 dd       	rcall	.-1490   	; 0x24a <LCD_DisplayString>
+		case controllerUnlocked:
+			if(key == 'A'){
+				state = controllerLockWaitRelease;
+			}
+			else if(key == 'C'){
+				state = controllerChangePin;
+ 81c:	c8 e0       	ldi	r28, 0x08	; 8
+ 81e:	d0 e0       	ldi	r29, 0x00	; 0
+ 820:	82 c0       	rjmp	.+260    	; 0x926 <TickFct_Controller+0x2f2>
+				clearInputPin();
+				LCD_DisplayString(1, "Pin: ");
 			}
 			break;
 		case controllerLockWaitRelease:
 			if(!doorClosed && lockedFlag ){
- 7da:	21 11       	cpse	r18, r1
- 7dc:	09 c0       	rjmp	.+18     	; 0x7f0 <TickFct_Controller+0x1bc>
- 7de:	90 91 fe 01 	lds	r25, 0x01FE
- 7e2:	99 23       	and	r25, r25
- 7e4:	29 f0       	breq	.+10     	; 0x7f0 <TickFct_Controller+0x1bc>
+ 822:	21 11       	cpse	r18, r1
+ 824:	0d c0       	rjmp	.+26     	; 0x840 <TickFct_Controller+0x20c>
+ 826:	90 91 fe 01 	lds	r25, 0x01FE
+ 82a:	99 23       	and	r25, r25
+ 82c:	49 f0       	breq	.+18     	; 0x840 <TickFct_Controller+0x20c>
 				state = controllerIntrusionDetected;
+				PORTA = 0xFF;
+ 82e:	8f ef       	ldi	r24, 0xFF	; 255
+ 830:	82 b9       	out	0x02, r24	; 2
 				LCD_DisplayString(1, "ALARM! Enter Pin: ");
- 7e6:	64 e6       	ldi	r22, 0x64	; 100
- 7e8:	71 e0       	ldi	r23, 0x01	; 1
- 7ea:	81 e0       	ldi	r24, 0x01	; 1
- 7ec:	2e dd       	rcall	.-1444   	; 0x24a <LCD_DisplayString>
- 7ee:	6c c0       	rjmp	.+216    	; 0x8c8 <TickFct_Controller+0x294>
+ 832:	64 e6       	ldi	r22, 0x64	; 100
+ 834:	71 e0       	ldi	r23, 0x01	; 1
+ 836:	81 e0       	ldi	r24, 0x01	; 1
+ 838:	08 dd       	rcall	.-1520   	; 0x24a <LCD_DisplayString>
+				LCD_DisplayString(1, "Pin: ");
+			}
+			break;
+		case controllerLockWaitRelease:
+			if(!doorClosed && lockedFlag ){
+				state = controllerIntrusionDetected;
+ 83a:	c9 e0       	ldi	r28, 0x09	; 9
+ 83c:	d0 e0       	ldi	r29, 0x00	; 0
+				PORTA = 0xFF;
+				LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 83e:	73 c0       	rjmp	.+230    	; 0x926 <TickFct_Controller+0x2f2>
 			}
 			else if(key != '\0'){
- 7f0:	81 11       	cpse	r24, r1
- 7f2:	4d c0       	rjmp	.+154    	; 0x88e <TickFct_Controller+0x25a>
+ 840:	81 11       	cpse	r24, r1
+ 842:	71 c0       	rjmp	.+226    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerLockWaitRelease;
 			}
 			else{
 				state = controllerWait;
 				clearInputPin();
- 7f4:	e6 dd       	rcall	.-1076   	; 0x3c2 <clearInputPin>
+ 844:	be dd       	rcall	.-1156   	; 0x3c2 <clearInputPin>
 				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
- 7f6:	68 e3       	ldi	r22, 0x38	; 56
- 7f8:	71 e0       	ldi	r23, 0x01	; 1
- 7fa:	81 e0       	ldi	r24, 0x01	; 1
- 7fc:	26 dd       	rcall	.-1460   	; 0x24a <LCD_DisplayString>
+ 846:	68 e3       	ldi	r22, 0x38	; 56
+ 848:	71 e0       	ldi	r23, 0x01	; 1
+ 84a:	81 e0       	ldi	r24, 0x01	; 1
+ 84c:	fe dc       	rcall	.-1540   	; 0x24a <LCD_DisplayString>
 				clearFlags();
- 7fe:	08 df       	rcall	.-496    	; 0x610 <clearFlags>
- 800:	72 c0       	rjmp	.+228    	; 0x8e6 <TickFct_Controller+0x2b2>
+ 84e:	e0 de       	rcall	.-576    	; 0x610 <clearFlags>
+			}
+			else if(key != '\0'){
+				state = controllerLockWaitRelease;
+			}
+			else{
+				state = controllerWait;
+ 850:	c1 e0       	ldi	r28, 0x01	; 1
+ 852:	d0 e0       	ldi	r29, 0x00	; 0
+ 854:	68 c0       	rjmp	.+208    	; 0x926 <TickFct_Controller+0x2f2>
+				LCD_DisplayString(1, "A for Keypad    B for Bluetooth");
+				clearFlags();
 			}
 			break;
 		case controllerChangePin:
 			if(!newPinInputComplete){
- 802:	80 91 68 02 	lds	r24, 0x0268
- 806:	88 23       	and	r24, r24
- 808:	09 f4       	brne	.+2      	; 0x80c <TickFct_Controller+0x1d8>
- 80a:	59 c0       	rjmp	.+178    	; 0x8be <TickFct_Controller+0x28a>
+ 856:	80 91 68 02 	lds	r24, 0x0268
+ 85a:	88 23       	and	r24, r24
+ 85c:	09 f4       	brne	.+2      	; 0x860 <TickFct_Controller+0x22c>
+ 85e:	63 c0       	rjmp	.+198    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerChangePin;
 			}
 			else{
 				state = controllerUnlocked;
 				keypadEnable = 0;
- 80c:	10 92 65 02 	sts	0x0265, r1
+ 860:	10 92 65 02 	sts	0x0265, r1
 				showPin = 0;
- 810:	10 92 64 02 	sts	0x0264, r1
+ 864:	10 92 64 02 	sts	0x0264, r1
 				LCD_DisplayString(1, "Press A to Lock C to change Pin");
- 814:	69 ed       	ldi	r22, 0xD9	; 217
- 816:	71 e0       	ldi	r23, 0x01	; 1
- 818:	81 e0       	ldi	r24, 0x01	; 1
- 81a:	17 dd       	rcall	.-1490   	; 0x24a <LCD_DisplayString>
- 81c:	4b c0       	rjmp	.+150    	; 0x8b4 <TickFct_Controller+0x280>
+ 868:	69 ed       	ldi	r22, 0xD9	; 217
+ 86a:	71 e0       	ldi	r23, 0x01	; 1
+ 86c:	81 e0       	ldi	r24, 0x01	; 1
+ 86e:	ed dc       	rcall	.-1574   	; 0x24a <LCD_DisplayString>
+		case controllerChangePin:
+			if(!newPinInputComplete){
+				state = controllerChangePin;
+			}
+			else{
+				state = controllerUnlocked;
+ 870:	c5 e0       	ldi	r28, 0x05	; 5
+ 872:	d0 e0       	ldi	r29, 0x00	; 0
+ 874:	58 c0       	rjmp	.+176    	; 0x926 <TickFct_Controller+0x2f2>
+				LCD_DisplayString(1, "Press A to Lock C to change Pin");
 			}
 			break;
 		case controllerIntrusionDetected:
-			if(!doorClosed && lockedFlag ){
- 81e:	21 11       	cpse	r18, r1
- 820:	62 c0       	rjmp	.+196    	; 0x8e6 <TickFct_Controller+0x2b2>
- 822:	80 91 fe 01 	lds	r24, 0x01FE
- 826:	88 23       	and	r24, r24
- 828:	09 f4       	brne	.+2      	; 0x82c <TickFct_Controller+0x1f8>
- 82a:	5d c0       	rjmp	.+186    	; 0x8e6 <TickFct_Controller+0x2b2>
-				state = controllerIntrusionPin;
-				keypadEnable = 1;
- 82c:	81 e0       	ldi	r24, 0x01	; 1
- 82e:	80 93 65 02 	sts	0x0265, r24
-				clearInputPin();
- 832:	c7 dd       	rcall	.-1138   	; 0x3c2 <clearInputPin>
- 834:	4e c0       	rjmp	.+156    	; 0x8d2 <TickFct_Controller+0x29e>
-			else{
-				state = controllerWait;
+			state = controllerIntrusionPin;
+			keypadEnable = 1;
+ 876:	81 e0       	ldi	r24, 0x01	; 1
+ 878:	80 93 65 02 	sts	0x0265, r24
+			pinInputComplete = 0;
+ 87c:	10 92 3f 02 	sts	0x023F, r1
+			clearInputPin();
+ 880:	a0 dd       	rcall	.-1216   	; 0x3c2 <clearInputPin>
+				showPin = 0;
+				LCD_DisplayString(1, "Press A to Lock C to change Pin");
 			}
+			break;
+		case controllerIntrusionDetected:
+			state = controllerIntrusionPin;
+ 882:	ca e0       	ldi	r28, 0x0A	; 10
+ 884:	d0 e0       	ldi	r29, 0x00	; 0
+			keypadEnable = 1;
+			pinInputComplete = 0;
+			clearInputPin();
+			break;
+ 886:	4f c0       	rjmp	.+158    	; 0x926 <TickFct_Controller+0x2f2>
+		case controllerIntrusionPin:
+			if(pinInputComplete){
+ 888:	80 91 3f 02 	lds	r24, 0x023F
+ 88c:	88 23       	and	r24, r24
+ 88e:	09 f4       	brne	.+2      	; 0x892 <TickFct_Controller+0x25e>
+ 890:	4a c0       	rjmp	.+148    	; 0x926 <TickFct_Controller+0x2f2>
+				state = controllerIntrusionCheck;
+				checkPinFlag = 1;
+ 892:	81 e0       	ldi	r24, 0x01	; 1
+ 894:	80 93 ff 01 	sts	0x01FF, r24
+				keypadEnable = 0;
+ 898:	10 92 65 02 	sts	0x0265, r1
+				LCD_DisplayString(1, "Checking...     C to cancel");
+ 89c:	6f ea       	ldi	r22, 0xAF	; 175
+ 89e:	71 e0       	ldi	r23, 0x01	; 1
+ 8a0:	d4 dc       	rcall	.-1624   	; 0x24a <LCD_DisplayString>
+			pinInputComplete = 0;
+			clearInputPin();
 			break;
 		case controllerIntrusionPin:
 			if(pinInputComplete){
- 836:	80 91 3f 02 	lds	r24, 0x023F
- 83a:	88 23       	and	r24, r24
- 83c:	09 f4       	brne	.+2      	; 0x840 <TickFct_Controller+0x20c>
- 83e:	49 c0       	rjmp	.+146    	; 0x8d2 <TickFct_Controller+0x29e>
 				state = controllerIntrusionCheck;
-				checkPinFlag = 1;
- 840:	81 e0       	ldi	r24, 0x01	; 1
- 842:	80 93 ff 01 	sts	0x01FF, r24
-				keypadEnable = 0;
- 846:	10 92 65 02 	sts	0x0265, r1
-				LCD_DisplayString(1, "Checking...     C to cancel");
- 84a:	6f ea       	ldi	r22, 0xAF	; 175
- 84c:	71 e0       	ldi	r23, 0x01	; 1
- 84e:	fd dc       	rcall	.-1542   	; 0x24a <LCD_DisplayString>
- 850:	45 c0       	rjmp	.+138    	; 0x8dc <TickFct_Controller+0x2a8>
+ 8a2:	cb e0       	ldi	r28, 0x0B	; 11
+ 8a4:	d0 e0       	ldi	r29, 0x00	; 0
+ 8a6:	3f c0       	rjmp	.+126    	; 0x926 <TickFct_Controller+0x2f2>
 			else{
 				state = controllerIntrusionPin;
 			}
 			break;
 		case controllerIntrusionCheck:
 			if(checkPinFlag){
- 852:	80 91 ff 01 	lds	r24, 0x01FF
- 856:	81 11       	cpse	r24, r1
- 858:	41 c0       	rjmp	.+130    	; 0x8dc <TickFct_Controller+0x2a8>
+ 8a8:	80 91 ff 01 	lds	r24, 0x01FF
+ 8ac:	81 11       	cpse	r24, r1
+ 8ae:	3b c0       	rjmp	.+118    	; 0x926 <TickFct_Controller+0x2f2>
 				state = controllerIntrusionCheck;
 			}
 			else{
 				if(lockedFlag){
- 85a:	80 91 fe 01 	lds	r24, 0x01FE
- 85e:	88 23       	and	r24, r24
- 860:	61 f0       	breq	.+24     	; 0x87a <TickFct_Controller+0x246>
+ 8b0:	80 91 fe 01 	lds	r24, 0x01FE
+ 8b4:	88 23       	and	r24, r24
+ 8b6:	91 f0       	breq	.+36     	; 0x8dc <TickFct_Controller+0x2a8>
 					state = controllerIntrusionDetected;
 					controlCounter = 0;
- 862:	10 92 63 02 	sts	0x0263, r1
- 866:	10 92 62 02 	sts	0x0262, r1
+ 8b8:	10 92 63 02 	sts	0x0263, r1
+ 8bc:	10 92 62 02 	sts	0x0262, r1
 					LCD_DisplayString(1, "Incorrect Pin");
- 86a:	6b ec       	ldi	r22, 0xCB	; 203
- 86c:	71 e0       	ldi	r23, 0x01	; 1
- 86e:	81 e0       	ldi	r24, 0x01	; 1
- 870:	ec dc       	rcall	.-1576   	; 0x24a <LCD_DisplayString>
+ 8c0:	6b ec       	ldi	r22, 0xCB	; 203
+ 8c2:	71 e0       	ldi	r23, 0x01	; 1
+ 8c4:	81 e0       	ldi	r24, 0x01	; 1
+ 8c6:	c1 dc       	rcall	.-1662   	; 0x24a <LCD_DisplayString>
 					delay_ms(500);
- 872:	84 ef       	ldi	r24, 0xF4	; 244
- 874:	91 e0       	ldi	r25, 0x01	; 1
- 876:	a6 dc       	rcall	.-1716   	; 0x1c4 <delay_ms>
- 878:	27 c0       	rjmp	.+78     	; 0x8c8 <TickFct_Controller+0x294>
+ 8c8:	84 ef       	ldi	r24, 0xF4	; 244
+ 8ca:	91 e0       	ldi	r25, 0x01	; 1
+ 8cc:	7b dc       	rcall	.-1802   	; 0x1c4 <delay_ms>
+					LCD_DisplayString(1, "ALARM! Enter Pin: ");
+ 8ce:	64 e6       	ldi	r22, 0x64	; 100
+ 8d0:	71 e0       	ldi	r23, 0x01	; 1
+ 8d2:	81 e0       	ldi	r24, 0x01	; 1
+ 8d4:	ba dc       	rcall	.-1676   	; 0x24a <LCD_DisplayString>
+			if(checkPinFlag){
+				state = controllerIntrusionCheck;
+			}
+			else{
+				if(lockedFlag){
+					state = controllerIntrusionDetected;
+ 8d6:	c9 e0       	ldi	r28, 0x09	; 9
+ 8d8:	d0 e0       	ldi	r29, 0x00	; 0
+ 8da:	25 c0       	rjmp	.+74     	; 0x926 <TickFct_Controller+0x2f2>
+					delay_ms(500);
+					LCD_DisplayString(1, "ALARM! Enter Pin: ");
 				}
 				else{
 					state = controllerUnlocked;
+					PORTA = 0x00;
+ 8dc:	12 b8       	out	0x02, r1	; 2
 					LCD_DisplayString(1, "Press A to Lock C to change Pin");
- 87a:	69 ed       	ldi	r22, 0xD9	; 217
- 87c:	71 e0       	ldi	r23, 0x01	; 1
- 87e:	81 e0       	ldi	r24, 0x01	; 1
- 880:	e4 dc       	rcall	.-1592   	; 0x24a <LCD_DisplayString>
- 882:	18 c0       	rjmp	.+48     	; 0x8b4 <TickFct_Controller+0x280>
-			state = controllerinit;
-			break;
-	}
-	switch(state){
-		case controllerinit:
-			PORTA = 1;
- 884:	81 e0       	ldi	r24, 0x01	; 1
- 886:	82 b9       	out	0x02, r24	; 2
+ 8de:	69 ed       	ldi	r22, 0xD9	; 217
+ 8e0:	71 e0       	ldi	r23, 0x01	; 1
+ 8e2:	81 e0       	ldi	r24, 0x01	; 1
+ 8e4:	b2 dc       	rcall	.-1692   	; 0x24a <LCD_DisplayString>
+					LCD_DisplayString(1, "Incorrect Pin");
+					delay_ms(500);
+					LCD_DisplayString(1, "ALARM! Enter Pin: ");
+				}
+				else{
+					state = controllerUnlocked;
+ 8e6:	c5 e0       	ldi	r28, 0x05	; 5
+ 8e8:	d0 e0       	ldi	r29, 0x00	; 0
+ 8ea:	1d c0       	rjmp	.+58     	; 0x926 <TickFct_Controller+0x2f2>
 					LCD_DisplayString(1, "Press A to Lock C to change Pin");
 				}
 			}
 			break;
 		default:
 			state = controllerinit;
- 888:	80 e0       	ldi	r24, 0x00	; 0
- 88a:	90 e0       	ldi	r25, 0x00	; 0
+ 8ec:	c0 e0       	ldi	r28, 0x00	; 0
+ 8ee:	d0 e0       	ldi	r29, 0x00	; 0
+ 8f0:	1a c0       	rjmp	.+52     	; 0x926 <TickFct_Controller+0x2f2>
 			break;
-	}
-	switch(state){
-		case controllerinit:
-			PORTA = 1;
+		case controllerKeypad:
+			keypadEnable = 1;
 			break;
- 88c:	45 c0       	rjmp	.+138    	; 0x918 <TickFct_Controller+0x2e4>
+		case controllerBluetooth:
+			bluetoothEnable = 1;
+ 8f2:	81 e0       	ldi	r24, 0x01	; 1
+ 8f4:	80 93 40 02 	sts	0x0240, r24
 			break;
-		case controllerUnlocked:
-			PORTA = 7;
-			break;
-		case controllerLockWaitRelease:
-			PORTA = 8;
- 88e:	88 e0       	ldi	r24, 0x08	; 8
- 890:	82 b9       	out	0x02, r24	; 2
-			break;
- 892:	87 e0       	ldi	r24, 0x07	; 7
- 894:	90 e0       	ldi	r25, 0x00	; 0
- 896:	40 c0       	rjmp	.+128    	; 0x918 <TickFct_Controller+0x2e4>
-			break;
+ 8f8:	c3 e0       	ldi	r28, 0x03	; 3
+ 8fa:	d0 e0       	ldi	r29, 0x00	; 0
+ 8fc:	14 c0       	rjmp	.+40     	; 0x926 <TickFct_Controller+0x2f2>
 		case controllerCheck:
-			PORTA = 5;
 			break;
 		case controllerLocked:
-			PORTA = 6;
- 898:	86 e0       	ldi	r24, 0x06	; 6
- 89a:	82 b9       	out	0x02, r24	; 2
 			++controlCounter;
- 89c:	80 91 62 02 	lds	r24, 0x0262
- 8a0:	90 91 63 02 	lds	r25, 0x0263
- 8a4:	01 96       	adiw	r24, 0x01	; 1
- 8a6:	90 93 63 02 	sts	0x0263, r25
- 8aa:	80 93 62 02 	sts	0x0262, r24
+ 8fe:	80 91 62 02 	lds	r24, 0x0262
+ 902:	90 91 63 02 	lds	r25, 0x0263
+ 906:	01 96       	adiw	r24, 0x01	; 1
+ 908:	90 93 63 02 	sts	0x0263, r25
+ 90c:	80 93 62 02 	sts	0x0262, r24
 			break;
- 8ae:	86 e0       	ldi	r24, 0x06	; 6
- 8b0:	90 e0       	ldi	r25, 0x00	; 0
- 8b2:	32 c0       	rjmp	.+100    	; 0x918 <TickFct_Controller+0x2e4>
+ 910:	c6 e0       	ldi	r28, 0x06	; 6
+ 912:	d0 e0       	ldi	r29, 0x00	; 0
+ 914:	08 c0       	rjmp	.+16     	; 0x926 <TickFct_Controller+0x2f2>
+				state = controllerLocked;
+			}
+			break;
 		case controllerUnlocked:
-			PORTA = 7;
- 8b4:	87 e0       	ldi	r24, 0x07	; 7
- 8b6:	82 b9       	out	0x02, r24	; 2
-			break;
- 8b8:	85 e0       	ldi	r24, 0x05	; 5
- 8ba:	90 e0       	ldi	r25, 0x00	; 0
- 8bc:	2d c0       	rjmp	.+90     	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerLockWaitRelease:
-			PORTA = 8;
-			break;
-		case controllerChangePin:
-			PORTA = 9;
- 8be:	89 e0       	ldi	r24, 0x09	; 9
- 8c0:	82 b9       	out	0x02, r24	; 2
-			break;
- 8c2:	88 e0       	ldi	r24, 0x08	; 8
- 8c4:	90 e0       	ldi	r25, 0x00	; 0
- 8c6:	28 c0       	rjmp	.+80     	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerIntrusionDetected:
-			PORTA = 10;
- 8c8:	8a e0       	ldi	r24, 0x0A	; 10
- 8ca:	82 b9       	out	0x02, r24	; 2
-			break;
- 8cc:	89 e0       	ldi	r24, 0x09	; 9
- 8ce:	90 e0       	ldi	r25, 0x00	; 0
- 8d0:	23 c0       	rjmp	.+70     	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerIntrusionPin:
-			PORTA = 11;
- 8d2:	8b e0       	ldi	r24, 0x0B	; 11
- 8d4:	82 b9       	out	0x02, r24	; 2
-			break;
- 8d6:	8a e0       	ldi	r24, 0x0A	; 10
- 8d8:	90 e0       	ldi	r25, 0x00	; 0
- 8da:	1e c0       	rjmp	.+60     	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerIntrusionCheck:
-			PORTA = 12;
- 8dc:	8c e0       	ldi	r24, 0x0C	; 12
- 8de:	82 b9       	out	0x02, r24	; 2
-			break;	
- 8e0:	8b e0       	ldi	r24, 0x0B	; 11
- 8e2:	90 e0       	ldi	r25, 0x00	; 0
- 8e4:	19 c0       	rjmp	.+50     	; 0x918 <TickFct_Controller+0x2e4>
-	switch(state){
+			if(key == 'A'){
+				state = controllerLockWaitRelease;
+ 916:	c7 e0       	ldi	r28, 0x07	; 7
+ 918:	d0 e0       	ldi	r29, 0x00	; 0
+ 91a:	05 c0       	rjmp	.+10     	; 0x926 <TickFct_Controller+0x2f2>
 		case controllerinit:
-			PORTA = 1;
 			break;
 		case controllerWait:
-			PORTA = 2;
- 8e6:	82 e0       	ldi	r24, 0x02	; 2
- 8e8:	82 b9       	out	0x02, r24	; 2
 			break;
- 8ea:	81 e0       	ldi	r24, 0x01	; 1
- 8ec:	90 e0       	ldi	r25, 0x00	; 0
- 8ee:	14 c0       	rjmp	.+40     	; 0x918 <TickFct_Controller+0x2e4>
 		case controllerKeypad:
-			PORTA = 3;
- 8f0:	83 e0       	ldi	r24, 0x03	; 3
- 8f2:	82 b9       	out	0x02, r24	; 2
 			keypadEnable = 1;
- 8f4:	81 e0       	ldi	r24, 0x01	; 1
- 8f6:	80 93 65 02 	sts	0x0265, r24
+ 91c:	81 e0       	ldi	r24, 0x01	; 1
+ 91e:	80 93 65 02 	sts	0x0265, r24
 			break;
- 8fa:	82 e0       	ldi	r24, 0x02	; 2
- 8fc:	90 e0       	ldi	r25, 0x00	; 0
- 8fe:	0c c0       	rjmp	.+24     	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerBluetooth:
-			PORTA = 4;
- 900:	84 e0       	ldi	r24, 0x04	; 4
- 902:	82 b9       	out	0x02, r24	; 2
-			bluetoothEnable = 1;
- 904:	81 e0       	ldi	r24, 0x01	; 1
- 906:	80 93 40 02 	sts	0x0240, r24
+ 922:	c2 e0       	ldi	r28, 0x02	; 2
+ 924:	d0 e0       	ldi	r29, 0x00	; 0
 			break;
- 90a:	83 e0       	ldi	r24, 0x03	; 3
- 90c:	90 e0       	ldi	r25, 0x00	; 0
- 90e:	04 c0       	rjmp	.+8      	; 0x918 <TickFct_Controller+0x2e4>
-		case controllerCheck:
-			PORTA = 5;
- 910:	85 e0       	ldi	r24, 0x05	; 5
- 912:	82 b9       	out	0x02, r24	; 2
-			break;
- 914:	84 e0       	ldi	r24, 0x04	; 4
- 916:	90 e0       	ldi	r25, 0x00	; 0
 		case controllerIntrusionCheck:
-			PORTA = 12;
 			break;	
 	}
 	return state;
 }
- 918:	df 91       	pop	r29
- 91a:	cf 91       	pop	r28
- 91c:	08 95       	ret
+ 926:	ce 01       	movw	r24, r28
+ 928:	df 91       	pop	r29
+ 92a:	cf 91       	pop	r28
+ 92c:	08 95       	ret
 
-0000091e <getInputPinLength>:
+0000092e <getInputPinLength>:
 	pinInputComplete = 0;
 }
 
 unsigned char getInputPinLength(){
 	unsigned char i = 0;
 	while(inputPin[i] != '\0'){
- 91e:	80 91 51 02 	lds	r24, 0x0251
- 922:	88 23       	and	r24, r24
- 924:	51 f0       	breq	.+20     	; 0x93a <getInputPinLength+0x1c>
+ 92e:	80 91 51 02 	lds	r24, 0x0251
+ 932:	88 23       	and	r24, r24
+ 934:	51 f0       	breq	.+20     	; 0x94a <getInputPinLength+0x1c>
 	showPin = 0;
 	pinInputComplete = 0;
 }
 
 unsigned char getInputPinLength(){
 	unsigned char i = 0;
- 926:	80 e0       	ldi	r24, 0x00	; 0
+ 936:	80 e0       	ldi	r24, 0x00	; 0
 	while(inputPin[i] != '\0'){
 		++i;
- 928:	8f 5f       	subi	r24, 0xFF	; 255
+ 938:	8f 5f       	subi	r24, 0xFF	; 255
 	pinInputComplete = 0;
 }
 
 unsigned char getInputPinLength(){
 	unsigned char i = 0;
 	while(inputPin[i] != '\0'){
- 92a:	e8 2f       	mov	r30, r24
- 92c:	f0 e0       	ldi	r31, 0x00	; 0
- 92e:	ef 5a       	subi	r30, 0xAF	; 175
- 930:	fd 4f       	sbci	r31, 0xFD	; 253
- 932:	90 81       	ld	r25, Z
- 934:	91 11       	cpse	r25, r1
- 936:	f8 cf       	rjmp	.-16     	; 0x928 <getInputPinLength+0xa>
- 938:	08 95       	ret
+ 93a:	e8 2f       	mov	r30, r24
+ 93c:	f0 e0       	ldi	r31, 0x00	; 0
+ 93e:	ef 5a       	subi	r30, 0xAF	; 175
+ 940:	fd 4f       	sbci	r31, 0xFD	; 253
+ 942:	90 81       	ld	r25, Z
+ 944:	91 11       	cpse	r25, r1
+ 946:	f8 cf       	rjmp	.-16     	; 0x938 <getInputPinLength+0xa>
+ 948:	08 95       	ret
 	showPin = 0;
 	pinInputComplete = 0;
 }
 
 unsigned char getInputPinLength(){
 	unsigned char i = 0;
- 93a:	80 e0       	ldi	r24, 0x00	; 0
+ 94a:	80 e0       	ldi	r24, 0x00	; 0
 	while(inputPin[i] != '\0'){
 		++i;
 	}
 	return i;
 }
- 93c:	08 95       	ret
+ 94c:	08 95       	ret
 
-0000093e <getCorrectPinLength>:
+0000094e <getCorrectPinLength>:
 
 unsigned char getCorrectPinLength(){
- 93e:	cf 93       	push	r28
+ 94e:	cf 93       	push	r28
 	unsigned char i = CORRECTPINSTARTADDR;
- 940:	c0 e0       	ldi	r28, 0x00	; 0
+ 950:	c0 e0       	ldi	r28, 0x00	; 0
 	while(eeprom_read_byte(i) != '\0'){
- 942:	01 c0       	rjmp	.+2      	; 0x946 <getCorrectPinLength+0x8>
+ 952:	01 c0       	rjmp	.+2      	; 0x956 <getCorrectPinLength+0x8>
 		++i;
- 944:	cf 5f       	subi	r28, 0xFF	; 255
+ 954:	cf 5f       	subi	r28, 0xFF	; 255
 	return i;
 }
 
 unsigned char getCorrectPinLength(){
 	unsigned char i = CORRECTPINSTARTADDR;
 	while(eeprom_read_byte(i) != '\0'){
- 946:	8c 2f       	mov	r24, r28
- 948:	90 e0       	ldi	r25, 0x00	; 0
- 94a:	99 d1       	rcall	.+818    	; 0xc7e <__eerd_byte_m1284>
- 94c:	81 11       	cpse	r24, r1
- 94e:	fa cf       	rjmp	.-12     	; 0x944 <getCorrectPinLength+0x6>
+ 956:	8c 2f       	mov	r24, r28
+ 958:	90 e0       	ldi	r25, 0x00	; 0
+ 95a:	99 d1       	rcall	.+818    	; 0xc8e <__eerd_byte_m1284>
+ 95c:	81 11       	cpse	r24, r1
+ 95e:	fa cf       	rjmp	.-12     	; 0x954 <getCorrectPinLength+0x6>
 		++i;
 	}
 	return i;
 }
- 950:	8c 2f       	mov	r24, r28
- 952:	cf 91       	pop	r28
- 954:	08 95       	ret
+ 960:	8c 2f       	mov	r24, r28
+ 962:	cf 91       	pop	r28
+ 964:	08 95       	ret
 
-00000956 <TickFct_CheckPin>:
+00000966 <TickFct_CheckPin>:
 	}
 	return state;
 }
 
 enum SM_CheckPin {checkInit, checkWait, checkCheck};
 int TickFct_CheckPin(int state){
- 956:	0f 93       	push	r16
- 958:	1f 93       	push	r17
- 95a:	cf 93       	push	r28
- 95c:	df 93       	push	r29
+ 966:	0f 93       	push	r16
+ 968:	1f 93       	push	r17
+ 96a:	cf 93       	push	r28
+ 96c:	df 93       	push	r29
 	switch(state){
- 95e:	81 30       	cpi	r24, 0x01	; 1
- 960:	91 05       	cpc	r25, r1
- 962:	49 f0       	breq	.+18     	; 0x976 <TickFct_CheckPin+0x20>
- 964:	82 30       	cpi	r24, 0x02	; 2
- 966:	91 05       	cpc	r25, r1
- 968:	19 f0       	breq	.+6      	; 0x970 <TickFct_CheckPin+0x1a>
- 96a:	89 2b       	or	r24, r25
- 96c:	09 f0       	breq	.+2      	; 0x970 <TickFct_CheckPin+0x1a>
- 96e:	3c c0       	rjmp	.+120    	; 0x9e8 <TickFct_CheckPin+0x92>
+ 96e:	81 30       	cpi	r24, 0x01	; 1
+ 970:	91 05       	cpc	r25, r1
+ 972:	49 f0       	breq	.+18     	; 0x986 <TickFct_CheckPin+0x20>
+ 974:	82 30       	cpi	r24, 0x02	; 2
+ 976:	91 05       	cpc	r25, r1
+ 978:	19 f0       	breq	.+6      	; 0x980 <TickFct_CheckPin+0x1a>
+ 97a:	89 2b       	or	r24, r25
+ 97c:	09 f0       	breq	.+2      	; 0x980 <TickFct_CheckPin+0x1a>
+ 97e:	3c c0       	rjmp	.+120    	; 0x9f8 <TickFct_CheckPin+0x92>
 		case checkInit:
 			state = checkWait;
- 970:	81 e0       	ldi	r24, 0x01	; 1
- 972:	90 e0       	ldi	r25, 0x00	; 0
- 974:	3b c0       	rjmp	.+118    	; 0x9ec <TickFct_CheckPin+0x96>
+ 980:	81 e0       	ldi	r24, 0x01	; 1
+ 982:	90 e0       	ldi	r25, 0x00	; 0
+ 984:	3b c0       	rjmp	.+118    	; 0x9fc <TickFct_CheckPin+0x96>
 			break;
 		case checkWait:
 			if(checkPinFlag){
- 976:	20 91 ff 01 	lds	r18, 0x01FF
- 97a:	22 23       	and	r18, r18
- 97c:	b9 f1       	breq	.+110    	; 0x9ec <TickFct_CheckPin+0x96>
+ 986:	20 91 ff 01 	lds	r18, 0x01FF
+ 98a:	22 23       	and	r18, r18
+ 98c:	b9 f1       	breq	.+110    	; 0x9fc <TickFct_CheckPin+0x96>
 				state = checkCheck;
 				isCorrect = 1;
- 97e:	81 e0       	ldi	r24, 0x01	; 1
- 980:	80 93 61 02 	sts	0x0261, r24
+ 98e:	81 e0       	ldi	r24, 0x01	; 1
+ 990:	80 93 61 02 	sts	0x0261, r24
 				checkCounter = 0;
- 984:	10 92 67 02 	sts	0x0267, r1
+ 994:	10 92 67 02 	sts	0x0267, r1
 				correctPinAddr = CORRECTPINSTARTADDR;
- 988:	10 92 fb 01 	sts	0x01FB, r1
+ 998:	10 92 fb 01 	sts	0x01FB, r1
 				if(getCorrectPinLength() != getInputPinLength()){
- 98c:	d8 df       	rcall	.-80     	; 0x93e <getCorrectPinLength>
- 98e:	c8 2f       	mov	r28, r24
- 990:	c6 df       	rcall	.-116    	; 0x91e <getInputPinLength>
- 992:	c8 13       	cpse	r28, r24
+ 99c:	d8 df       	rcall	.-80     	; 0x94e <getCorrectPinLength>
+ 99e:	c8 2f       	mov	r28, r24
+ 9a0:	c6 df       	rcall	.-116    	; 0x92e <getInputPinLength>
+ 9a2:	c8 13       	cpse	r28, r24
 					isCorrect = 0;
- 994:	10 92 61 02 	sts	0x0261, r1
+ 9a4:	10 92 61 02 	sts	0x0261, r1
 				}
 				while(eeprom_read_byte(correctPinAddr + checkCounter) != '\0' && isCorrect){
- 998:	00 91 61 02 	lds	r16, 0x0261
- 99c:	0b c0       	rjmp	.+22     	; 0x9b4 <TickFct_CheckPin+0x5e>
+ 9a8:	00 91 61 02 	lds	r16, 0x0261
+ 9ac:	0b c0       	rjmp	.+22     	; 0x9c4 <TickFct_CheckPin+0x5e>
 					if(eeprom_read_byte(correctPinAddr + checkCounter) != inputPin[checkCounter]){
- 99e:	cf 5a       	subi	r28, 0xAF	; 175
- 9a0:	dd 4f       	sbci	r29, 0xFD	; 253
- 9a2:	98 81       	ld	r25, Y
- 9a4:	89 17       	cp	r24, r25
- 9a6:	19 f0       	breq	.+6      	; 0x9ae <TickFct_CheckPin+0x58>
+ 9ae:	cf 5a       	subi	r28, 0xAF	; 175
+ 9b0:	dd 4f       	sbci	r29, 0xFD	; 253
+ 9b2:	98 81       	ld	r25, Y
+ 9b4:	89 17       	cp	r24, r25
+ 9b6:	19 f0       	breq	.+6      	; 0x9be <TickFct_CheckPin+0x58>
 						isCorrect = 0;
- 9a8:	10 92 61 02 	sts	0x0261, r1
+ 9b8:	10 92 61 02 	sts	0x0261, r1
 						break;
- 9ac:	15 c0       	rjmp	.+42     	; 0x9d8 <TickFct_CheckPin+0x82>
+ 9bc:	15 c0       	rjmp	.+42     	; 0x9e8 <TickFct_CheckPin+0x82>
 					}
 					++checkCounter;
- 9ae:	1f 5f       	subi	r17, 0xFF	; 255
- 9b0:	10 93 67 02 	sts	0x0267, r17
+ 9be:	1f 5f       	subi	r17, 0xFF	; 255
+ 9c0:	10 93 67 02 	sts	0x0267, r17
 				checkCounter = 0;
 				correctPinAddr = CORRECTPINSTARTADDR;
 				if(getCorrectPinLength() != getInputPinLength()){
 					isCorrect = 0;
 				}
 				while(eeprom_read_byte(correctPinAddr + checkCounter) != '\0' && isCorrect){
- 9b4:	10 91 67 02 	lds	r17, 0x0267
- 9b8:	c1 2f       	mov	r28, r17
- 9ba:	d0 e0       	ldi	r29, 0x00	; 0
- 9bc:	ce 01       	movw	r24, r28
- 9be:	5f d1       	rcall	.+702    	; 0xc7e <__eerd_byte_m1284>
- 9c0:	88 23       	and	r24, r24
- 9c2:	19 f0       	breq	.+6      	; 0x9ca <TickFct_CheckPin+0x74>
- 9c4:	01 11       	cpse	r16, r1
- 9c6:	eb cf       	rjmp	.-42     	; 0x99e <TickFct_CheckPin+0x48>
- 9c8:	07 c0       	rjmp	.+14     	; 0x9d8 <TickFct_CheckPin+0x82>
+ 9c4:	10 91 67 02 	lds	r17, 0x0267
+ 9c8:	c1 2f       	mov	r28, r17
+ 9ca:	d0 e0       	ldi	r29, 0x00	; 0
+ 9cc:	ce 01       	movw	r24, r28
+ 9ce:	5f d1       	rcall	.+702    	; 0xc8e <__eerd_byte_m1284>
+ 9d0:	88 23       	and	r24, r24
+ 9d2:	19 f0       	breq	.+6      	; 0x9da <TickFct_CheckPin+0x74>
+ 9d4:	01 11       	cpse	r16, r1
+ 9d6:	eb cf       	rjmp	.-42     	; 0x9ae <TickFct_CheckPin+0x48>
+ 9d8:	07 c0       	rjmp	.+14     	; 0x9e8 <TickFct_CheckPin+0x82>
 						isCorrect = 0;
 						break;
 					}
 					++checkCounter;
 				}
 				if(isCorrect){
- 9ca:	80 91 61 02 	lds	r24, 0x0261
- 9ce:	88 23       	and	r24, r24
- 9d0:	19 f0       	breq	.+6      	; 0x9d8 <TickFct_CheckPin+0x82>
+ 9da:	80 91 61 02 	lds	r24, 0x0261
+ 9de:	88 23       	and	r24, r24
+ 9e0:	19 f0       	breq	.+6      	; 0x9e8 <TickFct_CheckPin+0x82>
 					lockedFlag = 0;
- 9d2:	10 92 fe 01 	sts	0x01FE, r1
- 9d6:	03 c0       	rjmp	.+6      	; 0x9de <TickFct_CheckPin+0x88>
+ 9e2:	10 92 fe 01 	sts	0x01FE, r1
+ 9e6:	03 c0       	rjmp	.+6      	; 0x9ee <TickFct_CheckPin+0x88>
 				}
 				else{
 					lockedFlag = 1;
- 9d8:	81 e0       	ldi	r24, 0x01	; 1
- 9da:	80 93 fe 01 	sts	0x01FE, r24
+ 9e8:	81 e0       	ldi	r24, 0x01	; 1
+ 9ea:	80 93 fe 01 	sts	0x01FE, r24
 				}
 				checkPinFlag = 0;
- 9de:	10 92 ff 01 	sts	0x01FF, r1
+ 9ee:	10 92 ff 01 	sts	0x01FF, r1
 		case checkInit:
 			state = checkWait;
 			break;
 		case checkWait:
 			if(checkPinFlag){
 				state = checkCheck;
- 9e2:	82 e0       	ldi	r24, 0x02	; 2
- 9e4:	90 e0       	ldi	r25, 0x00	; 0
- 9e6:	02 c0       	rjmp	.+4      	; 0x9ec <TickFct_CheckPin+0x96>
+ 9f2:	82 e0       	ldi	r24, 0x02	; 2
+ 9f4:	90 e0       	ldi	r25, 0x00	; 0
+ 9f6:	02 c0       	rjmp	.+4      	; 0x9fc <TickFct_CheckPin+0x96>
 			break;
 		case checkCheck:
 			state = checkWait;
 			break;
 		default:
 			state = checkInit;
- 9e8:	80 e0       	ldi	r24, 0x00	; 0
- 9ea:	90 e0       	ldi	r25, 0x00	; 0
+ 9f8:	80 e0       	ldi	r24, 0x00	; 0
+ 9fa:	90 e0       	ldi	r25, 0x00	; 0
 			break;
 		case checkCheck:
 			break;
 	}
 	return state;
 }
- 9ec:	df 91       	pop	r29
- 9ee:	cf 91       	pop	r28
- 9f0:	1f 91       	pop	r17
- 9f2:	0f 91       	pop	r16
- 9f4:	08 95       	ret
+ 9fc:	df 91       	pop	r29
+ 9fe:	cf 91       	pop	r28
+ a00:	1f 91       	pop	r17
+ a02:	0f 91       	pop	r16
+ a04:	08 95       	ret
 
-000009f6 <__vector_13>:
+00000a06 <__vector_13>:
 	}
 	return state;
 }
 
 ISR(TIMER1_COMPA_vect)
 {
- 9f6:	1f 92       	push	r1
- 9f8:	0f 92       	push	r0
- 9fa:	0f b6       	in	r0, 0x3f	; 63
- 9fc:	0f 92       	push	r0
- 9fe:	11 24       	eor	r1, r1
- a00:	0b b6       	in	r0, 0x3b	; 59
- a02:	0f 92       	push	r0
- a04:	ef 92       	push	r14
- a06:	ff 92       	push	r15
- a08:	0f 93       	push	r16
- a0a:	1f 93       	push	r17
- a0c:	2f 93       	push	r18
- a0e:	3f 93       	push	r19
- a10:	4f 93       	push	r20
- a12:	5f 93       	push	r21
- a14:	6f 93       	push	r22
- a16:	7f 93       	push	r23
- a18:	8f 93       	push	r24
- a1a:	9f 93       	push	r25
- a1c:	af 93       	push	r26
- a1e:	bf 93       	push	r27
- a20:	cf 93       	push	r28
- a22:	df 93       	push	r29
- a24:	ef 93       	push	r30
- a26:	ff 93       	push	r31
- a28:	c0 e0       	ldi	r28, 0x00	; 0
- a2a:	d2 e0       	ldi	r29, 0x02	; 2
- a2c:	0f 2e       	mov	r0, r31
- a2e:	fc e3       	ldi	r31, 0x3C	; 60
- a30:	ef 2e       	mov	r14, r31
- a32:	f2 e0       	ldi	r31, 0x02	; 2
- a34:	ff 2e       	mov	r15, r31
- a36:	f0 2d       	mov	r31, r0
- a38:	8e 01       	movw	r16, r28
+ a06:	1f 92       	push	r1
+ a08:	0f 92       	push	r0
+ a0a:	0f b6       	in	r0, 0x3f	; 63
+ a0c:	0f 92       	push	r0
+ a0e:	11 24       	eor	r1, r1
+ a10:	0b b6       	in	r0, 0x3b	; 59
+ a12:	0f 92       	push	r0
+ a14:	ef 92       	push	r14
+ a16:	ff 92       	push	r15
+ a18:	0f 93       	push	r16
+ a1a:	1f 93       	push	r17
+ a1c:	2f 93       	push	r18
+ a1e:	3f 93       	push	r19
+ a20:	4f 93       	push	r20
+ a22:	5f 93       	push	r21
+ a24:	6f 93       	push	r22
+ a26:	7f 93       	push	r23
+ a28:	8f 93       	push	r24
+ a2a:	9f 93       	push	r25
+ a2c:	af 93       	push	r26
+ a2e:	bf 93       	push	r27
+ a30:	cf 93       	push	r28
+ a32:	df 93       	push	r29
+ a34:	ef 93       	push	r30
+ a36:	ff 93       	push	r31
+ a38:	c0 e0       	ldi	r28, 0x00	; 0
+ a3a:	d2 e0       	ldi	r29, 0x02	; 2
+ a3c:	0f 2e       	mov	r0, r31
+ a3e:	fc e3       	ldi	r31, 0x3C	; 60
+ a40:	ef 2e       	mov	r14, r31
+ a42:	f2 e0       	ldi	r31, 0x02	; 2
+ a44:	ff 2e       	mov	r15, r31
+ a46:	f0 2d       	mov	r31, r0
+ a48:	8e 01       	movw	r16, r28
 	unsigned char i;
 	for(i = 0; i < 5; ++i){
 		if( tasks[i].elapsedTime >= tasks[i].period){
- a3a:	4e 81       	ldd	r20, Y+6	; 0x06
- a3c:	5f 81       	ldd	r21, Y+7	; 0x07
- a3e:	68 85       	ldd	r22, Y+8	; 0x08
- a40:	79 85       	ldd	r23, Y+9	; 0x09
- a42:	8a 81       	ldd	r24, Y+2	; 0x02
- a44:	9b 81       	ldd	r25, Y+3	; 0x03
- a46:	ac 81       	ldd	r26, Y+4	; 0x04
- a48:	bd 81       	ldd	r27, Y+5	; 0x05
- a4a:	48 17       	cp	r20, r24
- a4c:	59 07       	cpc	r21, r25
- a4e:	6a 07       	cpc	r22, r26
- a50:	7b 07       	cpc	r23, r27
- a52:	58 f0       	brcs	.+22     	; 0xa6a <__vector_13+0x74>
+ a4a:	4e 81       	ldd	r20, Y+6	; 0x06
+ a4c:	5f 81       	ldd	r21, Y+7	; 0x07
+ a4e:	68 85       	ldd	r22, Y+8	; 0x08
+ a50:	79 85       	ldd	r23, Y+9	; 0x09
+ a52:	8a 81       	ldd	r24, Y+2	; 0x02
+ a54:	9b 81       	ldd	r25, Y+3	; 0x03
+ a56:	ac 81       	ldd	r26, Y+4	; 0x04
+ a58:	bd 81       	ldd	r27, Y+5	; 0x05
+ a5a:	48 17       	cp	r20, r24
+ a5c:	59 07       	cpc	r21, r25
+ a5e:	6a 07       	cpc	r22, r26
+ a60:	7b 07       	cpc	r23, r27
+ a62:	58 f0       	brcs	.+22     	; 0xa7a <__vector_13+0x74>
 			tasks[i].state = tasks[i].TickFct(tasks[i].state);
- a54:	ea 85       	ldd	r30, Y+10	; 0x0a
- a56:	fb 85       	ldd	r31, Y+11	; 0x0b
- a58:	88 81       	ld	r24, Y
- a5a:	99 81       	ldd	r25, Y+1	; 0x01
- a5c:	09 95       	icall
- a5e:	99 83       	std	Y+1, r25	; 0x01
- a60:	88 83       	st	Y, r24
+ a64:	ea 85       	ldd	r30, Y+10	; 0x0a
+ a66:	fb 85       	ldd	r31, Y+11	; 0x0b
+ a68:	88 81       	ld	r24, Y
+ a6a:	99 81       	ldd	r25, Y+1	; 0x01
+ a6c:	09 95       	icall
+ a6e:	99 83       	std	Y+1, r25	; 0x01
+ a70:	88 83       	st	Y, r24
 			tasks[i].elapsedTime = 0;
- a62:	1e 82       	std	Y+6, r1	; 0x06
- a64:	1f 82       	std	Y+7, r1	; 0x07
- a66:	18 86       	std	Y+8, r1	; 0x08
- a68:	19 86       	std	Y+9, r1	; 0x09
+ a72:	1e 82       	std	Y+6, r1	; 0x06
+ a74:	1f 82       	std	Y+7, r1	; 0x07
+ a76:	18 86       	std	Y+8, r1	; 0x08
+ a78:	19 86       	std	Y+9, r1	; 0x09
 		}
 		tasks[i].elapsedTime += 1;
- a6a:	f8 01       	movw	r30, r16
- a6c:	86 81       	ldd	r24, Z+6	; 0x06
- a6e:	97 81       	ldd	r25, Z+7	; 0x07
- a70:	a0 85       	ldd	r26, Z+8	; 0x08
- a72:	b1 85       	ldd	r27, Z+9	; 0x09
- a74:	01 96       	adiw	r24, 0x01	; 1
- a76:	a1 1d       	adc	r26, r1
- a78:	b1 1d       	adc	r27, r1
- a7a:	86 83       	std	Z+6, r24	; 0x06
- a7c:	97 83       	std	Z+7, r25	; 0x07
- a7e:	a0 87       	std	Z+8, r26	; 0x08
- a80:	b1 87       	std	Z+9, r27	; 0x09
- a82:	2c 96       	adiw	r28, 0x0c	; 12
+ a7a:	f8 01       	movw	r30, r16
+ a7c:	86 81       	ldd	r24, Z+6	; 0x06
+ a7e:	97 81       	ldd	r25, Z+7	; 0x07
+ a80:	a0 85       	ldd	r26, Z+8	; 0x08
+ a82:	b1 85       	ldd	r27, Z+9	; 0x09
+ a84:	01 96       	adiw	r24, 0x01	; 1
+ a86:	a1 1d       	adc	r26, r1
+ a88:	b1 1d       	adc	r27, r1
+ a8a:	86 83       	std	Z+6, r24	; 0x06
+ a8c:	97 83       	std	Z+7, r25	; 0x07
+ a8e:	a0 87       	std	Z+8, r26	; 0x08
+ a90:	b1 87       	std	Z+9, r27	; 0x09
+ a92:	2c 96       	adiw	r28, 0x0c	; 12
 }
 
 ISR(TIMER1_COMPA_vect)
 {
 	unsigned char i;
 	for(i = 0; i < 5; ++i){
- a84:	ce 15       	cp	r28, r14
- a86:	df 05       	cpc	r29, r15
- a88:	b9 f6       	brne	.-82     	; 0xa38 <__vector_13+0x42>
+ a94:	ce 15       	cp	r28, r14
+ a96:	df 05       	cpc	r29, r15
+ a98:	b9 f6       	brne	.-82     	; 0xa48 <__vector_13+0x42>
 			tasks[i].state = tasks[i].TickFct(tasks[i].state);
 			tasks[i].elapsedTime = 0;
 		}
 		tasks[i].elapsedTime += 1;
 	}
 }
- a8a:	ff 91       	pop	r31
- a8c:	ef 91       	pop	r30
- a8e:	df 91       	pop	r29
- a90:	cf 91       	pop	r28
- a92:	bf 91       	pop	r27
- a94:	af 91       	pop	r26
- a96:	9f 91       	pop	r25
- a98:	8f 91       	pop	r24
- a9a:	7f 91       	pop	r23
- a9c:	6f 91       	pop	r22
- a9e:	5f 91       	pop	r21
- aa0:	4f 91       	pop	r20
- aa2:	3f 91       	pop	r19
- aa4:	2f 91       	pop	r18
- aa6:	1f 91       	pop	r17
- aa8:	0f 91       	pop	r16
- aaa:	ff 90       	pop	r15
- aac:	ef 90       	pop	r14
- aae:	0f 90       	pop	r0
- ab0:	0b be       	out	0x3b, r0	; 59
- ab2:	0f 90       	pop	r0
- ab4:	0f be       	out	0x3f, r0	; 63
- ab6:	0f 90       	pop	r0
- ab8:	1f 90       	pop	r1
- aba:	18 95       	reti
+ a9a:	ff 91       	pop	r31
+ a9c:	ef 91       	pop	r30
+ a9e:	df 91       	pop	r29
+ aa0:	cf 91       	pop	r28
+ aa2:	bf 91       	pop	r27
+ aa4:	af 91       	pop	r26
+ aa6:	9f 91       	pop	r25
+ aa8:	8f 91       	pop	r24
+ aaa:	7f 91       	pop	r23
+ aac:	6f 91       	pop	r22
+ aae:	5f 91       	pop	r21
+ ab0:	4f 91       	pop	r20
+ ab2:	3f 91       	pop	r19
+ ab4:	2f 91       	pop	r18
+ ab6:	1f 91       	pop	r17
+ ab8:	0f 91       	pop	r16
+ aba:	ff 90       	pop	r15
+ abc:	ef 90       	pop	r14
+ abe:	0f 90       	pop	r0
+ ac0:	0b be       	out	0x3b, r0	; 59
+ ac2:	0f 90       	pop	r0
+ ac4:	0f be       	out	0x3f, r0	; 63
+ ac6:	0f 90       	pop	r0
+ ac8:	1f 90       	pop	r1
+ aca:	18 95       	reti
 
-00000abc <main>:
+00000acc <main>:
 
 int main(void)
 {
 	DDRA = 0xFF;	PORTA = 0x00;
- abc:	8f ef       	ldi	r24, 0xFF	; 255
- abe:	81 b9       	out	0x01, r24	; 1
- ac0:	12 b8       	out	0x02, r1	; 2
+ acc:	8f ef       	ldi	r24, 0xFF	; 255
+ ace:	81 b9       	out	0x01, r24	; 1
+ ad0:	12 b8       	out	0x02, r1	; 2
 	DDRB = 0xF0;	PORTB = 0x0F;
- ac2:	90 ef       	ldi	r25, 0xF0	; 240
- ac4:	94 b9       	out	0x04, r25	; 4
- ac6:	9f e0       	ldi	r25, 0x0F	; 15
- ac8:	95 b9       	out	0x05, r25	; 5
+ ad2:	90 ef       	ldi	r25, 0xF0	; 240
+ ad4:	94 b9       	out	0x04, r25	; 4
+ ad6:	9f e0       	ldi	r25, 0x0F	; 15
+ ad8:	95 b9       	out	0x05, r25	; 5
 	DDRC = 0xFF;	PORTC = 0x00;
- aca:	87 b9       	out	0x07, r24	; 7
- acc:	18 b8       	out	0x08, r1	; 8
+ ada:	87 b9       	out	0x07, r24	; 7
+ adc:	18 b8       	out	0x08, r1	; 8
 	DDRD = 0x00;	PORTD = 0xFF;
- ace:	1a b8       	out	0x0a, r1	; 10
- ad0:	8b b9       	out	0x0b, r24	; 11
+ ade:	1a b8       	out	0x0a, r1	; 10
+ ae0:	8b b9       	out	0x0b, r24	; 11
 	eeprom_write_byte(correctPinAddr++, '0');
- ad2:	80 91 fb 01 	lds	r24, 0x01FB
- ad6:	91 e0       	ldi	r25, 0x01	; 1
- ad8:	98 0f       	add	r25, r24
- ada:	90 93 fb 01 	sts	0x01FB, r25
- ade:	60 e3       	ldi	r22, 0x30	; 48
- ae0:	90 e0       	ldi	r25, 0x00	; 0
- ae2:	d5 d0       	rcall	.+426    	; 0xc8e <__eewr_byte_m1284>
+ ae2:	80 91 fb 01 	lds	r24, 0x01FB
+ ae6:	91 e0       	ldi	r25, 0x01	; 1
+ ae8:	98 0f       	add	r25, r24
+ aea:	90 93 fb 01 	sts	0x01FB, r25
+ aee:	60 e3       	ldi	r22, 0x30	; 48
+ af0:	90 e0       	ldi	r25, 0x00	; 0
+ af2:	d5 d0       	rcall	.+426    	; 0xc9e <__eewr_byte_m1284>
 	eeprom_write_byte(correctPinAddr++, '0');
- ae4:	80 91 fb 01 	lds	r24, 0x01FB
- ae8:	91 e0       	ldi	r25, 0x01	; 1
- aea:	98 0f       	add	r25, r24
- aec:	90 93 fb 01 	sts	0x01FB, r25
- af0:	60 e3       	ldi	r22, 0x30	; 48
- af2:	90 e0       	ldi	r25, 0x00	; 0
- af4:	cc d0       	rcall	.+408    	; 0xc8e <__eewr_byte_m1284>
+ af4:	80 91 fb 01 	lds	r24, 0x01FB
+ af8:	91 e0       	ldi	r25, 0x01	; 1
+ afa:	98 0f       	add	r25, r24
+ afc:	90 93 fb 01 	sts	0x01FB, r25
+ b00:	60 e3       	ldi	r22, 0x30	; 48
+ b02:	90 e0       	ldi	r25, 0x00	; 0
+ b04:	cc d0       	rcall	.+408    	; 0xc9e <__eewr_byte_m1284>
 	eeprom_write_byte(correctPinAddr++, '0');
- af6:	80 91 fb 01 	lds	r24, 0x01FB
- afa:	91 e0       	ldi	r25, 0x01	; 1
- afc:	98 0f       	add	r25, r24
- afe:	90 93 fb 01 	sts	0x01FB, r25
- b02:	60 e3       	ldi	r22, 0x30	; 48
- b04:	90 e0       	ldi	r25, 0x00	; 0
- b06:	c3 d0       	rcall	.+390    	; 0xc8e <__eewr_byte_m1284>
+ b06:	80 91 fb 01 	lds	r24, 0x01FB
+ b0a:	91 e0       	ldi	r25, 0x01	; 1
+ b0c:	98 0f       	add	r25, r24
+ b0e:	90 93 fb 01 	sts	0x01FB, r25
+ b12:	60 e3       	ldi	r22, 0x30	; 48
+ b14:	90 e0       	ldi	r25, 0x00	; 0
+ b16:	c3 d0       	rcall	.+390    	; 0xc9e <__eewr_byte_m1284>
 	eeprom_write_byte(correctPinAddr++, '0');
- b08:	80 91 fb 01 	lds	r24, 0x01FB
- b0c:	91 e0       	ldi	r25, 0x01	; 1
- b0e:	98 0f       	add	r25, r24
- b10:	90 93 fb 01 	sts	0x01FB, r25
- b14:	60 e3       	ldi	r22, 0x30	; 48
- b16:	90 e0       	ldi	r25, 0x00	; 0
- b18:	ba d0       	rcall	.+372    	; 0xc8e <__eewr_byte_m1284>
+ b18:	80 91 fb 01 	lds	r24, 0x01FB
+ b1c:	91 e0       	ldi	r25, 0x01	; 1
+ b1e:	98 0f       	add	r25, r24
+ b20:	90 93 fb 01 	sts	0x01FB, r25
+ b24:	60 e3       	ldi	r22, 0x30	; 48
+ b26:	90 e0       	ldi	r25, 0x00	; 0
+ b28:	ba d0       	rcall	.+372    	; 0xc9e <__eewr_byte_m1284>
 	eeprom_write_byte(correctPinAddr++, '\0');
- b1a:	80 91 fb 01 	lds	r24, 0x01FB
- b1e:	91 e0       	ldi	r25, 0x01	; 1
- b20:	98 0f       	add	r25, r24
- b22:	90 93 fb 01 	sts	0x01FB, r25
- b26:	60 e0       	ldi	r22, 0x00	; 0
- b28:	90 e0       	ldi	r25, 0x00	; 0
- b2a:	b1 d0       	rcall	.+354    	; 0xc8e <__eewr_byte_m1284>
+ b2a:	80 91 fb 01 	lds	r24, 0x01FB
+ b2e:	91 e0       	ldi	r25, 0x01	; 1
+ b30:	98 0f       	add	r25, r24
+ b32:	90 93 fb 01 	sts	0x01FB, r25
+ b36:	60 e0       	ldi	r22, 0x00	; 0
+ b38:	90 e0       	ldi	r25, 0x00	; 0
+ b3a:	b1 d0       	rcall	.+354    	; 0xc9e <__eewr_byte_m1284>
 	initUSART(0);
- b2c:	80 e0       	ldi	r24, 0x00	; 0
- b2e:	a7 db       	rcall	.-2226   	; 0x27e <initUSART>
+ b3c:	80 e0       	ldi	r24, 0x00	; 0
+ b3e:	9f db       	rcall	.-2242   	; 0x27e <initUSART>
 	initUSART(1);
- b30:	81 e0       	ldi	r24, 0x01	; 1
- b32:	a5 db       	rcall	.-2230   	; 0x27e <initUSART>
+ b40:	81 e0       	ldi	r24, 0x01	; 1
+ b42:	9d db       	rcall	.-2246   	; 0x27e <initUSART>
 	LCD_init();
- b34:	72 db       	rcall	.-2332   	; 0x21a <LCD_init>
+ b44:	6a db       	rcall	.-2348   	; 0x21a <LCD_init>
 	tasks[0].state = controllerinit;
- b36:	10 92 01 02 	sts	0x0201, r1
- b3a:	10 92 00 02 	sts	0x0200, r1
+ b46:	10 92 01 02 	sts	0x0201, r1
+ b4a:	10 92 00 02 	sts	0x0200, r1
 	tasks[0].period = 1;
- b3e:	81 e0       	ldi	r24, 0x01	; 1
- b40:	90 e0       	ldi	r25, 0x00	; 0
- b42:	a0 e0       	ldi	r26, 0x00	; 0
- b44:	b0 e0       	ldi	r27, 0x00	; 0
- b46:	80 93 02 02 	sts	0x0202, r24
- b4a:	90 93 03 02 	sts	0x0203, r25
- b4e:	a0 93 04 02 	sts	0x0204, r26
- b52:	b0 93 05 02 	sts	0x0205, r27
+ b4e:	81 e0       	ldi	r24, 0x01	; 1
+ b50:	90 e0       	ldi	r25, 0x00	; 0
+ b52:	a0 e0       	ldi	r26, 0x00	; 0
+ b54:	b0 e0       	ldi	r27, 0x00	; 0
+ b56:	80 93 02 02 	sts	0x0202, r24
+ b5a:	90 93 03 02 	sts	0x0203, r25
+ b5e:	a0 93 04 02 	sts	0x0204, r26
+ b62:	b0 93 05 02 	sts	0x0205, r27
 	tasks[0].elapsedTime = 1;
- b56:	80 93 06 02 	sts	0x0206, r24
- b5a:	90 93 07 02 	sts	0x0207, r25
- b5e:	a0 93 08 02 	sts	0x0208, r26
- b62:	b0 93 09 02 	sts	0x0209, r27
+ b66:	80 93 06 02 	sts	0x0206, r24
+ b6a:	90 93 07 02 	sts	0x0207, r25
+ b6e:	a0 93 08 02 	sts	0x0208, r26
+ b72:	b0 93 09 02 	sts	0x0209, r27
 	tasks[0].TickFct = &TickFct_Controller;
- b66:	8a e1       	ldi	r24, 0x1A	; 26
- b68:	93 e0       	ldi	r25, 0x03	; 3
- b6a:	90 93 0b 02 	sts	0x020B, r25
- b6e:	80 93 0a 02 	sts	0x020A, r24
+ b76:	8a e1       	ldi	r24, 0x1A	; 26
+ b78:	93 e0       	ldi	r25, 0x03	; 3
+ b7a:	90 93 0b 02 	sts	0x020B, r25
+ b7e:	80 93 0a 02 	sts	0x020A, r24
 	
 	tasks[1].state = bluetoothWait;
- b72:	10 92 0d 02 	sts	0x020D, r1
- b76:	10 92 0c 02 	sts	0x020C, r1
+ b82:	10 92 0d 02 	sts	0x020D, r1
+ b86:	10 92 0c 02 	sts	0x020C, r1
 	tasks[1].period = 5;
- b7a:	85 e0       	ldi	r24, 0x05	; 5
- b7c:	90 e0       	ldi	r25, 0x00	; 0
- b7e:	a0 e0       	ldi	r26, 0x00	; 0
- b80:	b0 e0       	ldi	r27, 0x00	; 0
- b82:	80 93 0e 02 	sts	0x020E, r24
- b86:	90 93 0f 02 	sts	0x020F, r25
- b8a:	a0 93 10 02 	sts	0x0210, r26
- b8e:	b0 93 11 02 	sts	0x0211, r27
+ b8a:	85 e0       	ldi	r24, 0x05	; 5
+ b8c:	90 e0       	ldi	r25, 0x00	; 0
+ b8e:	a0 e0       	ldi	r26, 0x00	; 0
+ b90:	b0 e0       	ldi	r27, 0x00	; 0
+ b92:	80 93 0e 02 	sts	0x020E, r24
+ b96:	90 93 0f 02 	sts	0x020F, r25
+ b9a:	a0 93 10 02 	sts	0x0210, r26
+ b9e:	b0 93 11 02 	sts	0x0211, r27
 	tasks[1].elapsedTime = 5;
- b92:	80 93 12 02 	sts	0x0212, r24
- b96:	90 93 13 02 	sts	0x0213, r25
- b9a:	a0 93 14 02 	sts	0x0214, r26
- b9e:	b0 93 15 02 	sts	0x0215, r27
+ ba2:	80 93 12 02 	sts	0x0212, r24
+ ba6:	90 93 13 02 	sts	0x0213, r25
+ baa:	a0 93 14 02 	sts	0x0214, r26
+ bae:	b0 93 15 02 	sts	0x0215, r27
 	tasks[1].TickFct = &TickFct_BluetoothReceiver;
- ba2:	2a ee       	ldi	r18, 0xEA	; 234
- ba4:	31 e0       	ldi	r19, 0x01	; 1
- ba6:	30 93 17 02 	sts	0x0217, r19
- baa:	20 93 16 02 	sts	0x0216, r18
+ bb2:	2a ee       	ldi	r18, 0xEA	; 234
+ bb4:	31 e0       	ldi	r19, 0x01	; 1
+ bb6:	30 93 17 02 	sts	0x0217, r19
+ bba:	20 93 16 02 	sts	0x0216, r18
 	
 	tasks[2].state = keypadWait1;
- bae:	10 92 19 02 	sts	0x0219, r1
- bb2:	10 92 18 02 	sts	0x0218, r1
+ bbe:	10 92 19 02 	sts	0x0219, r1
+ bc2:	10 92 18 02 	sts	0x0218, r1
 	tasks[2].period = 10;
- bb6:	4a e0       	ldi	r20, 0x0A	; 10
- bb8:	50 e0       	ldi	r21, 0x00	; 0
- bba:	60 e0       	ldi	r22, 0x00	; 0
- bbc:	70 e0       	ldi	r23, 0x00	; 0
- bbe:	40 93 1a 02 	sts	0x021A, r20
- bc2:	50 93 1b 02 	sts	0x021B, r21
- bc6:	60 93 1c 02 	sts	0x021C, r22
- bca:	70 93 1d 02 	sts	0x021D, r23
+ bc6:	4a e0       	ldi	r20, 0x0A	; 10
+ bc8:	50 e0       	ldi	r21, 0x00	; 0
+ bca:	60 e0       	ldi	r22, 0x00	; 0
+ bcc:	70 e0       	ldi	r23, 0x00	; 0
+ bce:	40 93 1a 02 	sts	0x021A, r20
+ bd2:	50 93 1b 02 	sts	0x021B, r21
+ bd6:	60 93 1c 02 	sts	0x021C, r22
+ bda:	70 93 1d 02 	sts	0x021D, r23
 	tasks[2].elapsedTime = 10;
- bce:	40 93 1e 02 	sts	0x021E, r20
- bd2:	50 93 1f 02 	sts	0x021F, r21
- bd6:	60 93 20 02 	sts	0x0220, r22
- bda:	70 93 21 02 	sts	0x0221, r23
+ bde:	40 93 1e 02 	sts	0x021E, r20
+ be2:	50 93 1f 02 	sts	0x021F, r21
+ be6:	60 93 20 02 	sts	0x0220, r22
+ bea:	70 93 21 02 	sts	0x0221, r23
 	tasks[2].TickFct = &TickFct_KeypadReceiver;
- bde:	26 e5       	ldi	r18, 0x56	; 86
- be0:	32 e0       	ldi	r19, 0x02	; 2
- be2:	30 93 23 02 	sts	0x0223, r19
- be6:	20 93 22 02 	sts	0x0222, r18
+ bee:	26 e5       	ldi	r18, 0x56	; 86
+ bf0:	32 e0       	ldi	r19, 0x02	; 2
+ bf2:	30 93 23 02 	sts	0x0223, r19
+ bf6:	20 93 22 02 	sts	0x0222, r18
 	
 	tasks[3].state = checkInit;
- bea:	10 92 25 02 	sts	0x0225, r1
- bee:	10 92 24 02 	sts	0x0224, r1
+ bfa:	10 92 25 02 	sts	0x0225, r1
+ bfe:	10 92 24 02 	sts	0x0224, r1
 	tasks[3].period = 15;
- bf2:	4f e0       	ldi	r20, 0x0F	; 15
- bf4:	50 e0       	ldi	r21, 0x00	; 0
- bf6:	60 e0       	ldi	r22, 0x00	; 0
- bf8:	70 e0       	ldi	r23, 0x00	; 0
- bfa:	40 93 26 02 	sts	0x0226, r20
- bfe:	50 93 27 02 	sts	0x0227, r21
- c02:	60 93 28 02 	sts	0x0228, r22
- c06:	70 93 29 02 	sts	0x0229, r23
+ c02:	4f e0       	ldi	r20, 0x0F	; 15
+ c04:	50 e0       	ldi	r21, 0x00	; 0
+ c06:	60 e0       	ldi	r22, 0x00	; 0
+ c08:	70 e0       	ldi	r23, 0x00	; 0
+ c0a:	40 93 26 02 	sts	0x0226, r20
+ c0e:	50 93 27 02 	sts	0x0227, r21
+ c12:	60 93 28 02 	sts	0x0228, r22
+ c16:	70 93 29 02 	sts	0x0229, r23
 	tasks[3].elapsedTime = 15;
- c0a:	40 93 2a 02 	sts	0x022A, r20
- c0e:	50 93 2b 02 	sts	0x022B, r21
- c12:	60 93 2c 02 	sts	0x022C, r22
- c16:	70 93 2d 02 	sts	0x022D, r23
+ c1a:	40 93 2a 02 	sts	0x022A, r20
+ c1e:	50 93 2b 02 	sts	0x022B, r21
+ c22:	60 93 2c 02 	sts	0x022C, r22
+ c26:	70 93 2d 02 	sts	0x022D, r23
 	tasks[3].TickFct = &TickFct_CheckPin;
- c1a:	2b ea       	ldi	r18, 0xAB	; 171
- c1c:	34 e0       	ldi	r19, 0x04	; 4
- c1e:	30 93 2f 02 	sts	0x022F, r19
- c22:	20 93 2e 02 	sts	0x022E, r18
+ c2a:	23 eb       	ldi	r18, 0xB3	; 179
+ c2c:	34 e0       	ldi	r19, 0x04	; 4
+ c2e:	30 93 2f 02 	sts	0x022F, r19
+ c32:	20 93 2e 02 	sts	0x022E, r18
 	
 	tasks[4].state = usartInit;
- c26:	10 92 31 02 	sts	0x0231, r1
- c2a:	10 92 30 02 	sts	0x0230, r1
+ c36:	10 92 31 02 	sts	0x0231, r1
+ c3a:	10 92 30 02 	sts	0x0230, r1
 	tasks[4].period = 5;
- c2e:	80 93 32 02 	sts	0x0232, r24
- c32:	90 93 33 02 	sts	0x0233, r25
- c36:	a0 93 34 02 	sts	0x0234, r26
- c3a:	b0 93 35 02 	sts	0x0235, r27
+ c3e:	80 93 32 02 	sts	0x0232, r24
+ c42:	90 93 33 02 	sts	0x0233, r25
+ c46:	a0 93 34 02 	sts	0x0234, r26
+ c4a:	b0 93 35 02 	sts	0x0235, r27
 	tasks[4].elapsedTime = 5;
- c3e:	80 93 36 02 	sts	0x0236, r24
- c42:	90 93 37 02 	sts	0x0237, r25
- c46:	a0 93 38 02 	sts	0x0238, r26
- c4a:	b0 93 39 02 	sts	0x0239, r27
+ c4e:	80 93 36 02 	sts	0x0236, r24
+ c52:	90 93 37 02 	sts	0x0237, r25
+ c56:	a0 93 38 02 	sts	0x0238, r26
+ c5a:	b0 93 39 02 	sts	0x0239, r27
 	tasks[4].TickFct = &TickFct_USART;
- c4e:	84 e9       	ldi	r24, 0x94	; 148
- c50:	91 e0       	ldi	r25, 0x01	; 1
- c52:	90 93 3b 02 	sts	0x023B, r25
- c56:	80 93 3a 02 	sts	0x023A, r24
+ c5e:	84 e9       	ldi	r24, 0x94	; 148
+ c60:	91 e0       	ldi	r25, 0x01	; 1
+ c62:	90 93 3b 02 	sts	0x023B, r25
+ c66:	80 93 3a 02 	sts	0x023A, r24
 
 unsigned short tasksNum;
 unsigned short tasksPeriodGCD;
 
 void TimerSet(unsigned long ms){
 	TCNT1 = 0;		//Initialize avr counter
- c5a:	10 92 85 00 	sts	0x0085, r1
- c5e:	10 92 84 00 	sts	0x0084, r1
+ c6a:	10 92 85 00 	sts	0x0085, r1
+ c6e:	10 92 84 00 	sts	0x0084, r1
 					
 	OCR1A = 125 * ms;	// AVR output compare register OCR1A.
- c62:	8d e7       	ldi	r24, 0x7D	; 125
- c64:	90 e0       	ldi	r25, 0x00	; 0
- c66:	90 93 89 00 	sts	0x0089, r25
- c6a:	80 93 88 00 	sts	0x0088, r24
+ c72:	8d e7       	ldi	r24, 0x7D	; 125
+ c74:	90 e0       	ldi	r25, 0x00	; 0
+ c76:	90 93 89 00 	sts	0x0089, r25
+ c7a:	80 93 88 00 	sts	0x0088, r24
 	
 	TimerSet(1);
 	TimerOn();
- c6e:	a0 da       	rcall	.-2752   	; 0x1b0 <TimerOn>
- c70:	ff cf       	rjmp	.-2      	; 0xc70 <main+0x1b4>
+ c7e:	98 da       	rcall	.-2768   	; 0x1b0 <TimerOn>
+ c80:	ff cf       	rjmp	.-2      	; 0xc80 <main+0x1b4>
 
-00000c72 <__tablejump2__>:
- c72:	ee 0f       	add	r30, r30
- c74:	ff 1f       	adc	r31, r31
+00000c82 <__tablejump2__>:
+ c82:	ee 0f       	add	r30, r30
+ c84:	ff 1f       	adc	r31, r31
 
-00000c76 <__tablejump__>:
- c76:	05 90       	lpm	r0, Z+
- c78:	f4 91       	lpm	r31, Z
- c7a:	e0 2d       	mov	r30, r0
- c7c:	09 94       	ijmp
+00000c86 <__tablejump__>:
+ c86:	05 90       	lpm	r0, Z+
+ c88:	f4 91       	lpm	r31, Z
+ c8a:	e0 2d       	mov	r30, r0
+ c8c:	09 94       	ijmp
 
-00000c7e <__eerd_byte_m1284>:
- c7e:	f9 99       	sbic	0x1f, 1	; 31
- c80:	fe cf       	rjmp	.-4      	; 0xc7e <__eerd_byte_m1284>
- c82:	92 bd       	out	0x22, r25	; 34
- c84:	81 bd       	out	0x21, r24	; 33
- c86:	f8 9a       	sbi	0x1f, 0	; 31
- c88:	99 27       	eor	r25, r25
- c8a:	80 b5       	in	r24, 0x20	; 32
- c8c:	08 95       	ret
+00000c8e <__eerd_byte_m1284>:
+ c8e:	f9 99       	sbic	0x1f, 1	; 31
+ c90:	fe cf       	rjmp	.-4      	; 0xc8e <__eerd_byte_m1284>
+ c92:	92 bd       	out	0x22, r25	; 34
+ c94:	81 bd       	out	0x21, r24	; 33
+ c96:	f8 9a       	sbi	0x1f, 0	; 31
+ c98:	99 27       	eor	r25, r25
+ c9a:	80 b5       	in	r24, 0x20	; 32
+ c9c:	08 95       	ret
 
-00000c8e <__eewr_byte_m1284>:
- c8e:	26 2f       	mov	r18, r22
+00000c9e <__eewr_byte_m1284>:
+ c9e:	26 2f       	mov	r18, r22
 
-00000c90 <__eewr_r18_m1284>:
- c90:	f9 99       	sbic	0x1f, 1	; 31
- c92:	fe cf       	rjmp	.-4      	; 0xc90 <__eewr_r18_m1284>
- c94:	1f ba       	out	0x1f, r1	; 31
- c96:	92 bd       	out	0x22, r25	; 34
- c98:	81 bd       	out	0x21, r24	; 33
- c9a:	20 bd       	out	0x20, r18	; 32
- c9c:	0f b6       	in	r0, 0x3f	; 63
- c9e:	f8 94       	cli
- ca0:	fa 9a       	sbi	0x1f, 2	; 31
- ca2:	f9 9a       	sbi	0x1f, 1	; 31
- ca4:	0f be       	out	0x3f, r0	; 63
- ca6:	01 96       	adiw	r24, 0x01	; 1
- ca8:	08 95       	ret
+00000ca0 <__eewr_r18_m1284>:
+ ca0:	f9 99       	sbic	0x1f, 1	; 31
+ ca2:	fe cf       	rjmp	.-4      	; 0xca0 <__eewr_r18_m1284>
+ ca4:	1f ba       	out	0x1f, r1	; 31
+ ca6:	92 bd       	out	0x22, r25	; 34
+ ca8:	81 bd       	out	0x21, r24	; 33
+ caa:	20 bd       	out	0x20, r18	; 32
+ cac:	0f b6       	in	r0, 0x3f	; 63
+ cae:	f8 94       	cli
+ cb0:	fa 9a       	sbi	0x1f, 2	; 31
+ cb2:	f9 9a       	sbi	0x1f, 1	; 31
+ cb4:	0f be       	out	0x3f, r0	; 63
+ cb6:	01 96       	adiw	r24, 0x01	; 1
+ cb8:	08 95       	ret
 
-00000caa <_exit>:
- caa:	f8 94       	cli
+00000cba <_exit>:
+ cba:	f8 94       	cli
 
-00000cac <__stop_program>:
- cac:	ff cf       	rjmp	.-2      	; 0xcac <__stop_program>
+00000cbc <__stop_program>:
+ cbc:	ff cf       	rjmp	.-2      	; 0xcbc <__stop_program>
