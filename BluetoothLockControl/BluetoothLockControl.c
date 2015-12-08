@@ -197,6 +197,7 @@ int TickFct_Controller(int state){
 				showPin = 1;
 				keypadEnable = 1;
 				pinInputComplete = 0;
+				newPinInputComplete = 0;
 				clearInputPin();
 				LCD_DisplayString(1, "Pin: ");
 			}
@@ -432,7 +433,6 @@ int TickFct_KeypadReceiver(int state){
 				if(showPin){
 					LCD_DisplayString(1, "Changing...");
 					inputPin[position] = '\0';
-					newPinInputComplete = 1;
 					unsigned char counter = 0;
 					correctPinAddr = CORRECTPINSTARTADDR;
 					while(1){
